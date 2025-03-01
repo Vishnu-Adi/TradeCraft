@@ -1,72 +1,393 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills - Community Skill Exchange</title>
+    <title>Explore Skills - Community Skill Exchange</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="../index.html">
-            <img src="../images/logo.svg" alt="Community Skill Exchange" width="30" height="30" class="d-inline-block align-top">
-            Community Skill Exchange
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard.html">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="skills.html">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="exchange.html">Exchange</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="messages.html">Messages</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="profile.html">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="register.html">Register</a>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-people-arrows me-2"></i>
+                SkillSwap
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="skills.html">
+                            <i class="fas fa-search me-1"></i> Explore
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exchange.html">
+                            <i class="fas fa-exchange-alt me-1"></i> Exchange
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">
+                            <i class="fas fa-sign-in-alt me-1"></i> Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-light ms-2 px-3" href="register.html">
+                            Join Free
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <div class="container mt-4">
-        <h1 class="text-center">Available Skills for Exchange</h1>
-        <div class="row mb-3">
-            <div class="col-md-6 offset-md-3">
-                <input type="text" class="form-control" id="search" placeholder="Search for skills...">
+    <div class="container my-5">
+        <h1 class="text-center mb-3">Discover Skills to Exchange</h1>
+        <p class="text-center text-muted mb-5">Browse through skills offered by community members and start your learning journey</p>
+        
+        <div class="row mb-4">
+            <div class="col-md-8 mx-auto">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-white border-end-0">
+                        <i class="fas fa-search text-muted"></i>
+                    </span>
+                    <input type="text" class="form-control border-start-0" id="search" placeholder="Search for skills...">
+                </div>
             </div>
         </div>
+        
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="d-flex justify-content-center flex-wrap gap-2">
+                    <button class="btn btn-outline-primary filter-btn active" data-filter="all">All Skills</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="technology">Technology</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="arts">Arts & Design</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="language">Languages</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="music">Music</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="cooking">Cooking</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="fitness">Fitness</button>
+                </div>
+            </div>
+        </div>
+        
         <div class="row" id="skills-list">
-            <!-- Skills will be dynamically loaded here -->
-            <div class="col-md-4">
-                <div class="card mb-4">
+            <!-- Web Development Skill -->
+            <div class="col-md-4 col-sm-6 mb-4" data-category="technology">
+                <div class="card skill-card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Skill Name</h5>
-                        <p class="card-text">Description of the skill offered.</p>
-                        <a href="#" class="btn btn-primary">Propose Exchange</a>
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="skill-level level-expert">Expert</span>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="ms-1 text-muted small">4.8</span>
+                            </div>
+                        </div>
+                        <h5 class="card-title">Web Development</h5>
+                        <p class="card-text">Full-stack web development with modern technologies like React, Node.js, and MongoDB.</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary rounded-circle text-white d-flex align-items-center justify-content-center me-2" style="width: 35px; height: 35px;">MC</div>
+                            <div>
+                                <p class="mb-0 fw-medium">Michael Chen</p>
+                                <small class="text-muted">Software Engineer</small>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="badge bg-light text-dark me-1">JavaScript</span>
+                                <span class="badge bg-light text-dark">React</span>
+                            </div>
+                            <a href="exchange.html" class="btn btn-sm btn-primary">Request Exchange</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Repeat above block for more skills -->
+            
+            <!-- Digital Marketing Skill -->
+            <div class="col-md-4 col-sm-6 mb-4" data-category="technology">
+                <div class="card skill-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="skill-level level-intermediate">Intermediate</span>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="ms-1 text-muted small">4.0</span>
+                            </div>
+                        </div>
+                        <h5 class="card-title">Digital Marketing</h5>
+                        <p class="card-text">SEO, content marketing, social media strategies, and Google Analytics expertise.</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary rounded-circle text-white d-flex align-items-center justify-content-center me-2" style="width: 35px; height: 35px;">SR</div>
+                            <div>
+                                <p class="mb-0 fw-medium">Sarah Rodriguez</p>
+                                <small class="text-muted">Marketing Consultant</small>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="badge bg-light text-dark me-1">SEO</span>
+                                <span class="badge bg-light text-dark">Social Media</span>
+                            </div>
+                            <a href="exchange.html" class="btn btn-sm btn-primary">Request Exchange</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Photography Skill -->
+            <div class="col-md-4 col-sm-6 mb-4" data-category="arts">
+                <div class="card skill-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="skill-level level-expert">Expert</span>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="ms-1 text-muted small">5.0</span>
+                            </div>
+                        </div>
+                        <h5 class="card-title">Photography</h5>
+                        <p class="card-text">Portrait and landscape photography with advanced editing techniques.</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary rounded-circle text-white d-flex align-items-center justify-content-center me-2" style="width: 35px; height: 35px;">AJ</div>
+                            <div>
+                                <p class="mb-0 fw-medium">Alex Johnson</p>
+                                <small class="text-muted">Professional Photographer</small>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="badge bg-light text-dark me-1">Photoshop</span>
+                                <span class="badge bg-light text-dark">Lightroom</span>
+                            </div>
+                            <a href="exchange.html" class="btn btn-sm btn-primary">Request Exchange</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Spanish Language Skill -->
+            <div class="col-md-4 col-sm-6 mb-4" data-category="language">
+                <div class="card skill-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="skill-level level-native">Native</span>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="ms-1 text-muted small">4.7</span>
+                            </div>
+                        </div>
+                        <h5 class="card-title">Spanish Language</h5>
+                        <p class="card-text">Native Spanish speaker offering conversational practice and grammar lessons.</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary rounded-circle text-white d-flex align-items-center justify-content-center me-2" style="width: 35px; height: 35px;">IG</div>
+                            <div>
+                                <p class="mb-0 fw-medium">Isabella Garcia</p>
+                                <small class="text-muted">Language Teacher</small>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="badge bg-light text-dark me-1">Conversation</span>
+                                <span class="badge bg-light text-dark">Grammar</span>
+                            </div>
+                            <a href="exchange.html" class="btn btn-sm btn-primary">Request Exchange</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Piano Lessons Skill -->
+            <div class="col-md-4 col-sm-6 mb-4" data-category="music">
+                <div class="card skill-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="skill-level level-advanced">Advanced</span>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="ms-1 text-muted small">4.2</span>
+                            </div>
+                        </div>
+                        <h5 class="card-title">Piano Lessons</h5>
+                        <p class="card-text">Classical piano instruction for beginners to intermediate players.</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary rounded-circle text-white d-flex align-items-center justify-content-center me-2" style="width: 35px; height: 35px;">DW</div>
+                            <div>
+                                <p class="mb-0 fw-medium">David Wilson</p>
+                                <small class="text-muted">Music Instructor</small>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="badge bg-light text-dark me-1">Classical</span>
+                                <span class="badge bg-light text-dark">Theory</span>
+                            </div>
+                            <a href="exchange.html" class="btn btn-sm btn-primary">Request Exchange</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Baking Skill -->
+            <div class="col-md-4 col-sm-6 mb-4" data-category="cooking">
+                <div class="card skill-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="skill-level level-advanced">Advanced</span>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="ms-1 text-muted small">4.9</span>
+                            </div>
+                        </div>
+                        <h5 class="card-title">Baking & Pastry</h5>
+                        <p class="card-text">French pastry techniques, bread making, and decorative cake design.</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary rounded-circle text-white d-flex align-items-center justify-content-center me-2" style="width: 35px; height: 35px;">EL</div>
+                            <div>
+                                <p class="mb-0 fw-medium">Emma Lewis</p>
+                                <small class="text-muted">Pastry Chef</small>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="badge bg-light text-dark me-1">Pastry</span>
+                                <span class="badge bg-light text-dark">Bread</span>
+                            </div>
+                            <a href="exchange.html" class="btn btn-sm btn-primary">Request Exchange</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <button class="btn btn-outline-primary px-4">Load More Skills</button>
         </div>
     </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">SkillSwap</h5>
+                    <p>A community-driven platform for exchanging skills and knowledge without monetary transactions.</p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="mb-3">Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">About Us</a></li>
+                        <li><a href="#" class="text-white">How It Works</a></li>
+                        <li><a href="#" class="text-white">FAQs</a></li>
+                        <li><a href="#" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="mb-3">Categories</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Technology</a></li>
+                        <li><a href="#" class="text-white">Art & Design</a></li>
+                        <li><a href="#" class="text-white">Languages</a></li>
+                        <li><a href="#" class="text-white">Music</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Newsletter</h5>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <form class="d-flex">
+                        <input type="email" class="form-control me-2" placeholder="Your email">
+                        <button class="btn btn-outline-light" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-white">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 SkillSwap Community. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/validation.js"></script>
     <script src="../js/main.js"></script>
+    <script>
+        // Skills page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const skillItems = document.querySelectorAll('#skills-list > div');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter skills
+                    skillItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.getElementById('search');
+            searchInput.addEventListener('keyup', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                skillItems.forEach(item => {
+                    const title = item.querySelector('.card-title').textContent.toLowerCase();
+                    const description = item.querySelector('.card-text').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
