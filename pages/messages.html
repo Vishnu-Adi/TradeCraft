@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - Community Skill Exchange</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="../index.html">
+            <img src="../images/logo.svg" alt="Logo" width="30" height="30" class="d-inline-block align-top">
+            Community Skill Exchange
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="skills.html">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="exchange.html">Exchange</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="messages.html">Messages <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Messages</h1>
+        <div class="message-list">
+            <div class="message-item border p-3 mb-2">
+                <strong>John Doe:</strong>
+                <p>Hi, I would like to discuss the skill exchange we talked about.</p>
+                <small class="text-muted">2 hours ago</small>
+            </div>
+            <div class="message-item border p-3 mb-2">
+                <strong>Jane Smith:</strong>
+                <p>Are you available for a call tomorrow?</p>
+                <small class="text-muted">1 day ago</small>
+            </div>
+            <!-- More messages can be added here -->
+        </div>
+
+        <div class="message-form mt-4">
+            <h2>Send a Message</h2>
+            <form id="messageForm">
+                <div class="form-group">
+                    <label for="recipient">To:</label>
+                    <input type="text" class="form-control" id="recipient" placeholder="Enter recipient's name" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea class="form-control" id="message" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/validation.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
