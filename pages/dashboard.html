@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SkillSwap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-people-arrows me-2"></i>
+                SkillSwap
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="skills.html">
+                            <i class="fas fa-search me-1"></i> Explore
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exchange.html">
+                            <i class="fas fa-exchange-alt me-1"></i> Exchange
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="dashboard.html">
+                            <i class="fas fa-tachometer-alt me-1"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="messages.html">
+                            <i class="fas fa-comment me-1"></i> 
+                            Messages <span class="badge rounded-pill bg-danger">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" 
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" 
+                                 class="rounded-circle me-1" width="24" height="24" alt="Profile">
+                            John Doe
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                            <li><a class="dropdown-item" href="profile.html">
+                                <i class="fas fa-user me-2"></i> My Profile
+                            </a></li>
+                            <li><a class="dropdown-item" href="settings.html">
+                                <i class="fas fa-cog me-2"></i> Settings
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../index.html">
+                                <i class="fas fa-sign-out-alt me-2"></i> Logout
+                            </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h1 class="fw-bold">Your Dashboard</h1>
+            <div class="d-flex gap-2">
+                <button class="btn btn-outline-primary">
+                    <i class="fas fa-sliders-h me-2"></i> Filter
+                </button>
+                <button class="btn btn-primary">
+                    <i class="fas fa-plus me-2"></i> Add Skill
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="row mb-4">
+            <div class="col-md-3 mb-3">
+                <div class="card border-0 shadow-sm rounded-3 h-100">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="me-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-3 text-primary">
+                                <i class="fas fa-exchange-alt fa-2x"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">18</h5>
+                            <p class="text-muted mb-0">Active Exchanges</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card border-0 shadow-sm rounded-3 h-100">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="me-3">
+                            <div class="bg-success bg-opacity-10 p-3 rounded-3 text-success">
+                                <i class="fas fa-tools fa-2x"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">24</h5>
+                            <p class="text-muted mb-0">Offered Skills</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card border-0 shadow-sm rounded-3 h-100">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="me-3">
+                            <div class="bg-warning bg-opacity-10 p-3 rounded-3 text-warning">
+                                <i class="fas fa-star fa-2x"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">4.8</h5>
+                            <p class="text-muted mb-0">Average Rating</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card border-0 shadow-sm rounded-3 h-100">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="me-3">
+                            <div class="bg-info bg-opacity-10 p-3 rounded-3 text-info">
+                                <i class="fas fa-comment fa-2x"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-0">12</h5>
+                            <p class="text-muted mb-0">Messages</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Recent Exchanges -->
+            <div class="col-lg-7 mb-4">
+                <div class="card border-0 shadow-sm rounded-3">
+                    <div class="card-header bg-white py-3 border-0">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Recent Exchanges</h5>
+                            <a href="exchange.html" class="text-decoration-none">View all</a>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col">User</th>
+                                        <th scope="col">Skill</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col" class="text-end">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://ui-avatars.com/api/?name=Sarah+Rodriguez&background=6b7280&color=fff" 
+                                                     class="rounded-circle me-2" width="36" height="36" alt="Sarah Rodriguez">
+                                                <div>
+                                                    <h6 class="mb-0">Sarah Rodriguez</h6>
+                                                    <small class="text-muted">Marketing Consultant</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Digital Marketing</td>
+                                        <td><span class="badge bg-success">Active</span></td>
+                                        <td>Mar 1, 2025</td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-light">Details</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=10b981&color=fff" 
+                                                     class="rounded-circle me-2" width="36" height="36" alt="Michael Chen">
+                                                <div>
+                                                    <h6 class="mb-0">Michael Chen</h6>
+                                                    <small class="text-muted">Software Engineer</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Web Development</td>
+                                        <td><span class="badge bg-warning">Scheduled</span></td>
+                                        <td>Mar 5, 2025</td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-light">Details</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://ui-avatars.com/api/?name=Emma+Lewis&background=fbbf24&color=fff" 
+                                                     class="rounded-circle me-2" width="36" height="36" alt="Emma Lewis">
+                                                <div>
+                                                    <h6 class="mb-0">Emma Lewis</h6>
+                                                    <small class="text-muted">Pastry Chef</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Baking & Pastry</td>
+                                        <td><span class="badge bg-success">Active</span></td>
+                                        <td>Feb 28, 2025</td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-light">Details</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://ui-avatars.com/api/?name=David+Wilson&background=ef4444&color=fff" 
+                                                     class="rounded-circle me-2" width="36" height="36" alt="David Wilson">
+                                                <div>
+                                                    <h6 class="mb-0">David Wilson</h6>
+                                                    <small class="text-muted">Music Instructor</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Piano Lessons</td>
+                                        <td><span class="badge bg-secondary">Completed</span></td>
+                                        <td>Feb 24, 2025</td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-light">Details</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-lg-5">
+                <!-- Notifications -->
+                <div class="card border-0 shadow-sm rounded-3 mb-4">
+                    <div class="card-header bg-white py-3 border-0">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Notifications</h5>
+                            <a href="#" class="text-decoration-none">Mark all as read</a>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item border-0 py-3 px-4">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <div class="bg-primary bg-opacity-10 p-2 rounded-circle text-primary">
+                                            <i class="fas fa-comment"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0"><strong>Michael Chen</strong> sent you a new message.</p>
+                                        <small class="text-muted">10 minutes ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item border-0 py-3 px-4">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <div class="bg-success bg-opacity-10 p-2 rounded-circle text-success">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0"><strong>Emma Lewis</strong> accepted your exchange request.</p>
+                                        <small class="text-muted">1 hour ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item border-0 py-3 px-4">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <div class="bg-warning bg-opacity-10 p-2 rounded-circle text-warning">
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0"><strong>Sarah Rodriguez</strong> left you a 5-star review.</p>
+                                        <small class="text-muted">3 hours ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item border-0 py-3 px-4">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <div class="bg-info bg-opacity-10 p-2 rounded-circle text-info">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0">Reminder: Piano lesson with David Wilson tomorrow at 3PM.</p>
+                                        <small class="text-muted">5 hours ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Your Progress -->
+                <div class="card border-0 shadow-sm rounded-3">
+                    <div class="card-header bg-white py-3 border-0">
+                        <h5 class="mb-0">Your Progress</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Profile Completion</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Skills Documented</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Exchange Feedback</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-light mt-4 mb-0">
+                            <i class="fas fa-lightbulb text-warning me-2"></i>
+                            Complete your profile to increase visibility in search results.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">SkillSwap</h5>
+                    <p>A community-driven platform for exchanging skills and knowledge without monetary transactions.</p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="mb-3">Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">About Us</a></li>
+                        <li><a href="#" class="text-white">How It Works</a></li>
+                        <li><a href="#" class="text-white">FAQs</a></li>
+                        <li><a href="#" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="mb-3">Categories</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Technology</a></li>
+                        <li><a href="#" class="text-white">Art & Design</a></li>
+                        <li><a href="#" class="text-white">Languages</a></li>
+                        <li><a href="#" class="text-white">Music</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Newsletter</h5>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <form class="d-flex">
+                        <input type="email" class="form-control me-2" placeholder="Your email">
+                        <button class="btn btn-outline-light" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-white">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 SkillSwap Community. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/validation.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
