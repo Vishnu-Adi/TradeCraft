@@ -1,0 +1,452 @@
+/* register.css - Styles for the register.html page */
+
+/* General Body Styles */
+body[data-pg-name="register"] {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #f9fafb;
+    margin: 0;
+    padding: 0;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+/* Navbar (Reusing and adapting from previous CSS) */
+.site-navbar {
+    background-color: #1E40AF;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 0.75rem 0;
+}
+
+.navbar-container {
+    margin-top: 2rem;
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-toggler {
+    border: none;
+    background: none;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    font-size: 1.25rem;
+}
+.navbar-toggler:focus{
+    outline: none;
+}
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.navbar-collapse {
+    flex-grow: 1;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+}
+
+.nav-item {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    transition: color 0.15s ease-in-out;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-link:hover {
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.nav-link.active {
+    color: white !important;
+     border: 1px solid white;
+}
+.nav-btn {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.25rem;
+    margin-left: 0.5rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-btn:hover {
+    background-color: white;
+    color: #1E40AF;
+}
+
+@media (min-width: 768px) {
+    .navbar-collapse {
+        display: flex !important;
+    }
+    .navbar-toggler{
+        display: none;
+    }
+}
+
+/* Main Content Area */
+.page-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 3rem auto 5rem; /* Increased bottom margin */
+}
+
+.register-card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    max-width: 600px; /* Wider than login */
+    margin: 0 auto;  /* Center the card */
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 1.5rem; /* h1 is too large */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+    text-align: center;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+}
+.social-signup {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.btn-social {
+    background-color: transparent;
+    border: 1px solid #d1d5db;
+    color: #4b5563;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex; /* Use inline-flex for consistent icon spacing */
+    align-items: center;
+    justify-content: center;
+    width: auto; /* Auto width based on content */
+    gap: 0.5rem;
+}
+.btn-social:hover{
+     background-color: #d1d5db;
+     transform: translateY(-1px);
+}
+
+.divider {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative; /* For positioning the pseudo-element */
+}
+
+.divider span {
+    background-color: #f9fafb; /* Match body background */
+    padding: 0 1rem;
+    position: relative; /* Bring the text above the line */
+    z-index: 2;         /* Ensure text is above the line */
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #d1d5db;
+    z-index: 1;        /* Ensure line is below the text */
+}
+.register-form{
+    /* No specific styles */
+}
+.form-row {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 1rem;  /* Consistent gap between form groups */
+}
+
+.form-row .form-group {
+    flex: 1; /* Equal width columns */
+    min-width: 0; /* Prevent flex items from overflowing */
+}
+.form-group {
+    margin-bottom: 1rem; /* Reduced from 1.5rem */
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #4b5563;
+    display: block;
+}
+
+.input-group {
+    display: flex;
+    align-items: stretch;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.input-group-text {
+    background-color: #f1f5f9;
+    border: 1px solid #d1d5db;
+    border-right: none; /* Remove right border for seamless look */
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-control {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    flex-grow: 1; /* Allow the input to fill available space */
+    min-width: 0; /* Important for flexbox to work correctly */
+    border-left: none;
+    border-radius: 0 0.5rem 0.5rem 0;
+
+}
+
+.form-control:focus {
+   border-color: #1E40AF;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
+     outline: none;
+}
+.form-row .form-control{
+     border-radius: 0.5rem;
+     border-left:1px solid #d1d5db;
+}
+.btn-toggle-password {
+    background-color: #fff;
+    border: 1px solid #d1d5db;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    cursor: pointer;
+    border-left: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-toggle-password:focus{
+    outline: none;
+}
+.password-requirements {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-top: 0.25rem;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.form-check-input {
+    margin-right: 0.5rem;
+    /* Add other styles as needed for checkbox appearance */
+     width: 1em;
+    height: 1em;
+    margin-top: 0.25em;
+    vertical-align: top;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid rgba(0,0,0,.25);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+    border-radius: 0.25em;
+}
+.form-check-input:checked{
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+.form-check-input:checked[type=checkbox] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+}
+
+.button-container {
+    display: grid; /* Use grid for a single-column layout */
+    gap: 0.5rem;   /* Space between buttons, if needed */
+}
+
+.btn-submit {
+   background-color: #1E40AF;
+    border-color: #1E40AF;
+    color: white;
+    padding: 0.75rem 1.5rem; /* py-2 */
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    width: 100%;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #1E3A8A;
+    border-color: #1E3A8A;
+     transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.login-link a {
+    color: #1E40AF;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+/* Footer (Reusing from index.css) */
+.site-footer {
+    background-color: #111827;  /*var(--dark-color)*/
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-col {
+    margin-bottom: 1rem;
+    flex-basis: 100%; /* Full width on small screens */
+}
+
+@media (min-width: 768px) {
+    .footer-col {
+        flex-basis: calc(25% - 1rem); /* Roughly 4 columns on larger screens */
+    }
+     .footer-col:nth-child(3){
+        flex-basis: calc(25% - 1rem);
+    }
+    .footer-col:first-child{
+        flex-basis: calc(50% - 1rem);
+    }
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem; /* gap-3 */
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: white; /* Inherited, but good to be explicit */
+    text-decoration: none; /* Remove underlines */
+}
+.footer-links{
+    list-style: none;
+    padding: 0;
+}
+.footer-links li{
+    margin-bottom: 0.5rem;
+}
+.footer-links a{
+   text-decoration: none;
+}
+
+.subscribe-form {
+    display: flex;
+    margin-top:1rem;
+}
+
+.subscribe-form .form-control {
+    border-radius: 0.5rem 0 0 0.5rem; /* Rounded left side */
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    flex-grow: 1; /* Take up available space */
+}
+
+.subscribe-btn {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;  /*Rounded Right side*/
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.subscribe-btn:hover {
+    background-color: white;
+    color: #111827;
+}
+.footer-divider{
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.5);
+}
+
+.copyright-text {
+    text-align: center;
+}
