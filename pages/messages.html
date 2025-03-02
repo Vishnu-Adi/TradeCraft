@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,15 +42,15 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="messages.html">
                             <i class="fas fa-comment me-1"></i> Messages
-                            <span class="badge rounded-pill bg-danger">3</span>
+                            <span class="badge rounded-pill bg-danger" id="unread-count-nav"></span>
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" 
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" 
-                                 class="rounded-circle me-1" width="24" height="24" alt="Profile">
-                            John Doe
+                   <li class="nav-item dropdown">
+                         <!-- Logged-in user dropdown -->
+                        <a class="nav-link dropdown-toggle active" href="#" id="profileDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="" class="rounded-circle me-1" width="24" height="24" alt="Profile" id="nav-profile-image">
+                            <span id="nav-username"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                             <li><a class="dropdown-item" href="profile.html">
@@ -61,7 +60,7 @@
                                 <i class="fas fa-cog me-2"></i> Settings
                             </a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="../index.html">
+                             <li><a class="dropdown-item" href="../index.html" id="logout-link">
                                 <i class="fas fa-sign-out-alt me-2"></i> Logout
                             </a></li>
                         </ul>
@@ -89,112 +88,25 @@
                             <span class="input-group-text bg-light border-end-0">
                                 <i class="fas fa-search text-muted"></i>
                             </span>
-                            <input type="text" class="form-control border-start-0 ps-0" placeholder="Search contacts...">
+                            <input type="text" class="form-control border-start-0 ps-0" placeholder="Search contacts..." id="contact-search">
                         </div>
                     </div>
                     
                     <!-- Contacts List -->
-                    <div class="contact-list">
-                        <!-- Active Conversation -->
-                        <div class="contact-item d-flex align-items-center p-3 border-bottom bg-light">
-                            <div class="position-relative me-3">
-                                <img src="https://ui-avatars.com/api/?name=Sarah+Rodriguez&background=6b7280&color=fff" 
-                                     class="rounded-circle" width="48" height="48" alt="Sarah Rodriguez">
-                                <span class="position-absolute bottom-0 end-0 bg-success rounded-circle p-1 border border-white"></span>
-                            </div>
-                            <div class="flex-grow-1 min-width-0">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h6 class="mb-0 text-truncate">Sarah Rodriguez</h6>
-                                    <small class="text-muted ms-2">12m</small>
-                                </div>
-                                <p class="small text-muted mb-0 text-truncate">I'm available tomorrow for our lesson!</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Unread Conversation -->
-                        <div class="contact-item d-flex align-items-center p-3 border-bottom">
-                            <div class="position-relative me-3">
-                                <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=10b981&color=fff" 
-                                     class="rounded-circle" width="48" height="48" alt="Michael Chen">
-                                <span class="position-absolute bottom-0 end-0 bg-success rounded-circle p-1 border border-white"></span>
-                            </div>
-                            <div class="flex-grow-1 min-width-0">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h6 class="mb-0 text-truncate fw-bold">Michael Chen</h6>
-                                    <div class="d-flex align-items-center">
-                                        <span class="badge rounded-pill bg-primary me-2">2</span>
-                                        <small class="text-muted">1h</small>
-                                    </div>
-                                </div>
-                                <p class="small text-muted mb-0 text-truncate fw-bold">Hey, I wanted to discuss the web development project.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Regular Conversation -->
-                        <div class="contact-item d-flex align-items-center p-3 border-bottom">
-                            <div class="position-relative me-3">
-                                <img src="https://ui-avatars.com/api/?name=Emma+Lewis&background=fbbf24&color=fff" 
-                                     class="rounded-circle" width="48" height="48" alt="Emma Lewis">
-                                <span class="position-absolute bottom-0 end-0 bg-secondary rounded-circle p-1 border border-white"></span>
-                            </div>
-                            <div class="flex-grow-1 min-width-0">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h6 class="mb-0 text-truncate">Emma Lewis</h6>
-                                    <small class="text-muted ms-2">2d</small>
-                                </div>
-                                <p class="small text-muted mb-0 text-truncate">Thanks for your help with the baking class!</p>
-                            </div>
-                        </div>
-                        
-                        <!-- More Conversations -->
-                        <div class="contact-item d-flex align-items-center p-3 border-bottom">
-                            <div class="position-relative me-3">
-                                <img src="https://ui-avatars.com/api/?name=David+Wilson&background=ef4444&color=fff" 
-                                     class="rounded-circle" width="48" height="48" alt="David Wilson">
-                                <span class="position-absolute bottom-0 end-0 bg-success rounded-circle p-1 border border-white"></span>
-                            </div>
-                            <div class="flex-grow-1 min-width-0">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h6 class="mb-0 text-truncate">David Wilson</h6>
-                                    <small class="text-muted ms-2">4d</small>
-                                </div>
-                                <p class="small text-muted mb-0 text-truncate">When is our next piano lesson?</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item d-flex align-items-center p-3 border-bottom">
-                            <div class="position-relative me-3">
-                                <img src="https://ui-avatars.com/api/?name=Isabella+Garcia&background=8b5cf6&color=fff" 
-                                     class="rounded-circle" width="48" height="48" alt="Isabella Garcia">
-                                <span class="position-absolute bottom-0 end-0 bg-secondary rounded-circle p-1 border border-white"></span>
-                            </div>
-                            <div class="flex-grow-1 min-width-0">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h6 class="mb-0 text-truncate">Isabella Garcia</h6>
-                                    <small class="text-muted ms-2">1w</small>
-                                </div>
-                                <p class="small text-muted mb-0 text-truncate">Hola! ¿Cómo va tu práctica de español?</p>
-                            </div>
-                        </div>
+                    <div class="contact-list" id="contact-list">
+                        <!-- Contacts will be loaded here dynamically -->
                     </div>
                 </div>
                 
                 <!-- Chat Area -->
-                <div class="col-md-8 col-lg-9 d-flex flex-column" style="height: 100%;">
+                <div class="col-md-8 col-lg-9 d-flex flex-column" style="height: 100%;" id="chat-area">
                     <!-- Chat Header -->
                     <div class="chat-header p-3 border-bottom d-flex align-items-center">
                         <button id="back-to-contacts" class="btn btn-sm btn-light rounded-circle me-2 d-md-none" title="Back to Contacts">
                             <i class="fas fa-arrow-left"></i>
                         </button>
-                        <div class="d-flex align-items-center">
-                            <img src="https://ui-avatars.com/api/?name=Sarah+Rodriguez&background=6b7280&color=fff" 
-                                 class="rounded-circle me-3" width="40" height="40" alt="Sarah Rodriguez">
-                            <div>
-                                <h6 class="mb-0">Sarah Rodriguez</h6>
-                                <small class="text-success">
-                                    <i class="fas fa-circle fa-xs me-1"></i>Online
-                                </small>
-                            </div>
+                        <div class="d-flex align-items-center" id="chat-header-info">
+                            <!-- User info will be loaded here -->
                         </div>
                         <div class="ms-auto">
                             <button class="btn btn-sm btn-light rounded-circle me-2" title="Voice Call">
@@ -210,120 +122,17 @@
                     </div>
                     
                     <!-- Chat Messages -->
-                    <div class="chat-messages p-3 flex-grow-1" style="overflow-y: auto;">
-                        <!-- Date Divider -->
-                        <div class="text-center mb-3">
-                            <span class="badge bg-light text-dark">Today</span>
-                        </div>
-                        
-                        <!-- Received Message -->
-                        <div class="message-received mb-3">
-                            <div class="d-flex">
-                                <img src="https://ui-avatars.com/api/?name=Sarah+Rodriguez&background=6b7280&color=fff" 
-                                     class="rounded-circle me-2 align-self-end" width="30" height="30" alt="Sarah Rodriguez">
-                                <div>
-                                    <div class="message-bubble received p-3 rounded-3">
-                                        <p class="mb-0">Hi John! I was wondering if we could schedule our digital marketing exchange session?</p>
-                                    </div>
-                                    <small class="text-muted">10:15 AM</small>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Sent Message -->
-                        <div class="message-sent mb-3 text-end">
-                            <div class="d-flex justify-content-end">
-                                <div class="text-start">
-                                    <div class="message-bubble sent p-3 rounded-3">
-                                        <p class="mb-0">Hey Sarah! Sure, I'm available tomorrow afternoon. Would 2 PM work for you?</p>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-end">
-                                        <small class="text-muted">10:17 AM</small>
-                                        <i class="fas fa-check-double text-primary ms-1 small"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Received Message -->
-                        <div class="message-received mb-3">
-                            <div class="d-flex">
-                                <img src="https://ui-avatars.com/api/?name=Sarah+Rodriguez&background=6b7280&color=fff" 
-                                     class="rounded-circle me-2 align-self-end" width="30" height="30" alt="Sarah Rodriguez">
-                                <div>
-                                    <div class="message-bubble received p-3 rounded-3">
-                                        <p class="mb-0">2 PM works perfectly! Should we meet at the usual coffee shop?</p>
-                                    </div>
-                                    <small class="text-muted">10:20 AM</small>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Sent Message -->
-                        <div class="message-sent mb-3 text-end">
-                            <div class="d-flex justify-content-end">
-                                <div class="text-start">
-                                    <div class="message-bubble sent p-3 rounded-3">
-                                        <p class="mb-0">Yes, let's do that. I'll bring my laptop with some examples of social media campaigns we can review.</p>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-end">
-                                        <small class="text-muted">10:22 AM</small>
-                                        <i class="fas fa-check-double text-primary ms-1 small"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Received Message -->
-                        <div class="message-received mb-3">
-                            <div class="d-flex">
-                                <img src="https://ui-avatars.com/api/?name=Sarah+Rodriguez&background=6b7280&color=fff" 
-                                     class="rounded-circle me-2 align-self-end" width="30" height="30" alt="Sarah Rodriguez">
-                                <div>
-                                    <div class="message-bubble received p-3 rounded-3">
-                                        <p class="mb-0">Sounds great! I'm excited to learn more about digital marketing strategies. I'll prepare some questions.</p>
-                                    </div>
-                                    <small class="text-muted">10:25 AM</small>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Received Message with Image -->
-                        <div class="message-received mb-3">
-                            <div class="d-flex">
-                                <img src="https://ui-avatars.com/api/?name=Sarah+Rodriguez&background=6b7280&color=fff" 
-                                     class="rounded-circle me-2 align-self-end" width="30" height="30" alt="Sarah Rodriguez">
-                                <div>
-                                    <div class="message-bubble received p-3 rounded-3">
-                                        <p class="mb-2">I've been working on this social media post. What do you think?</p>
-                                        <img src="https://via.placeholder.com/300x200?text=Social+Media+Post+Example" class="img-fluid rounded-3" alt="Social Media Post">
-                                    </div>
-                                    <small class="text-muted">10:40 AM</small>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Typing Indicator -->
-                        <div class="typing-indicator mb-3">
-                            <div class="d-flex">
-                                <img src="https://ui-avatars.com/api/?name=Sarah+Rodriguez&background=6b7280&color=fff" 
-                                     class="rounded-circle me-2 align-self-end" width="30" height="30" alt="Sarah Rodriguez">
-                                <div class="typing-indicator p-3 rounded-3">
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="chat-messages p-3 flex-grow-1" style="overflow-y: auto;" id="chat-messages">
+                       <!-- chat messages dynamically loaded here -->
                     </div>
                     
                     <!-- Chat Input -->
                     <div class="chat-input p-3 border-top">
-                        <form class="d-flex align-items-center">
+                        <form class="d-flex align-items-center" id="message-form">
                             <button class="btn btn-light rounded-circle me-2" type="button" title="Attach File">
                                 <i class="fas fa-paperclip"></i>
                             </button>
-                            <input type="text" class="form-control" placeholder="Type a message..." aria-label="Message">
+                            <input type="text" class="form-control" placeholder="Type a message..." aria-label="Message" id="message-input">
                             <button class="btn btn-light rounded-circle mx-2" type="button" title="Emoji">
                                 <i class="far fa-smile"></i>
                             </button>
@@ -379,14 +188,15 @@
             </div>
             <hr class="my-4 bg-white">
             <div class="text-center">
-                <p class="mb-0">&copy; 2025 SkillSwap Community. All rights reserved.</p>
+                <p class="mb-0">© 2025 SkillSwap Community. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="../js/storage.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/messages.js"></script>
+   
 
     <style>
         /* Additional styles for messages page */
@@ -450,5 +260,11 @@
             }
         }
     </style>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="../js/user.js"></script>
+      <script src="../js/messages.js"></script>
+      <script src="../js/ui.js"></script>
+      <script src="../js/storage.js"></script>
+
 </body>
 </html>

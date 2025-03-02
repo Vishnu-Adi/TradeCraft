@@ -1,99 +1,232 @@
-// js/storage.js
+// Email validation function
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+}
+// Password validation function
+function validatePassword(password) {
+    const minLength = 8;
+    const hasNumber = /\d/.test(password);
+    const hasLetter = /[a-zA-Z]/.test(password);
 
-document.addEventListener('DOMContentLoaded', function() {
+    return password.length >= minLength && hasNumber && hasLetter;
+}
 
-    // Function to load and display popular skills
-    function loadPopularSkills() {
-        const skillsContainer = document.getElementById('popular-skills-container');
-        if (!skillsContainer) return; // Exit if container doesn't exist
+(function () {
 
-        let skills = localStorage.getItem('popularSkills');
-        if (skills) {
-            skills = JSON.parse(skills);
-            skillsContainer.innerHTML = ''; // Clear existing content
-            skills.forEach(skill => {
-                const skillBadge = document.createElement('span');
-                skillBadge.className = 'badge bg-primary p-2';
-                skillBadge.textContent = skill;
-                skillsContainer.appendChild(skillBadge);
-            });
-        } else {
-            // Default skills if none in localStorage
-            const defaultSkills = ['Web Development', 'Graphic Design', 'Language Learning', 'Music', 'Photography', 'Cooking', 'Fitness', 'Digital Marketing'];
-            localStorage.setItem('popularSkills', JSON.stringify(defaultSkills));
-            loadPopularSkills(); // Call again to load from localStorage
+
+// Handle registration form submission
+const registrationForm = document.getElementById('registrationForm');
+if (registrationForm) {
+    registrationForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Reset error messages and styles
+        document.getElementById('register-error').classList.add('d-none');
+        document.getElementById('register-error').textContent = '';
+        document.getElementById('registration-success').style.display = 'none'; // Hide success
+
+         // Get all elements with class 'invalid-feedback' within the registration form
+        const invalidFeedbackElements = registrationForm.querySelectorAll('.invalid-feedback');
+        invalidFeedbackElements.forEach(element => {
+            element.textContent = ''; // Clear the error message
+        });
+
+        //remove the is-invalid class from all form-controls
+        const formControlElements = registrationForm.querySelectorAll('.form-control');
+        formControlElements.forEach(element => {
+            element.classList.remove('is-invalid');
+        });
+
+        // Get form values
+        const firstname = document.getElementById('register-firstname').value.trim();
+        const lastname = document.getElementById('register-lastname').value.trim();
+        const username = document.getElementById('register-username').value.trim();
+        const email = document.getElementById('register-email').value.trim();
+        const password = document.getElementById('register-password').value;
+        const confirmPassword = document.getElementById('register-confirm-password').value;
+        const termsCheckbox = document.getElementById('terms-checkbox');
+        let isValid = true;
+
+        // Validation
+         if (!firstname) {
+            document.getElementById('register-firstname-error').textContent = 'First name is required.';
+            document.getElementById('register-firstname-error').classList.add('d-block');
+            document.getElementById('register-firstname').classList.add('is-invalid');
+            isValid = false;
         }
-    }
 
-
-    // Function to load and display testimonials
-       function loadTestimonials() {
-        const testimonialsContainer = document.getElementById('testimonials-container');
-        if (!testimonialsContainer) return;
-
-        let testimonials = localStorage.getItem('testimonials');
-        if (testimonials) {
-            testimonials = JSON.parse(testimonials);
-            testimonialsContainer.innerHTML = ''; // Clear existing content
-            testimonials.forEach(testimonial => {
-                const testimonialCard = document.createElement('div');
-                testimonialCard.className = 'col-md-4 mb-4';
-                testimonialCard.innerHTML = `
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                ${Array(testimonial.rating).fill('<i class="fas fa-star text-warning"></i>').join('')}
-                                ${testimonial.rating < 5 ? Array(5 - Math.floor(testimonial.rating)).fill('<i class="far fa-star text-warning"></i>').join('') : ''}
-
-                            </div>
-                            <p class="card-text">"${testimonial.text}"</p>
-                            <div class="d-flex align-items-center mt-3">
-                                <div class="bg-primary rounded-circle text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">${testimonial.initials}</div>
-                                <div class="ms-3">
-                                    <h5 class="mb-0">${testimonial.name}</h5>
-                                    <small class="text-muted">${testimonial.role}</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                testimonialsContainer.appendChild(testimonialCard);
-            });
-        } else {
-             // Default testimonials if none in localStorage
-            const defaultTestimonials = [
-                { name: 'John Doe', role: 'Graphic Designer', text: 'I learned web development by exchanging my graphic design skills. This platform has been a game-changer for my career.', rating: 5, initials: 'JD' },
-                { name: 'Maria Santiago', role: 'Language Teacher', text: "I've been teaching Spanish and learning piano through this platform. The community is so supportive and talented!", rating: 5, initials: 'MS' },
-                { name: 'Alex Johnson', role: 'Photographer', text: "As a photographer, I've exchanged photography sessions for cooking lessons. Now I can take great photos AND cook amazing meals!", rating: 4.5, initials: 'AJ' }
-            ];
-            localStorage.setItem('testimonials', JSON.stringify(defaultTestimonials));
-            loadTestimonials();
+        if (!lastname) {
+            document.getElementById('register-lastname-error').textContent = 'Last name is required.';
+            document.getElementById('register-lastname-error').classList.add('d-block');
+             document.getElementById('register-lastname').classList.add('is-invalid');
+            isValid = false;
         }
-    }
 
-
-    // Check for logged-in user
-    function checkLoginStatus() {
-        const loggedInUsername = localStorage.getItem('loggedInUser');
-        const joinFreeNavItem = document.getElementById('join-free-nav-item');
-        const loggedInUserNav = document.getElementById('logged-in-user-nav');
-        const loggedInUsernameSpan = document.getElementById('logged-in-username');
-
-
-        if (loggedInUsername) {
-            // User is logged in
-            joinFreeNavItem.style.display = 'none';
-            loggedInUserNav.style.display = 'block';
-            loggedInUsernameSpan.textContent = loggedInUsername;
-        } else {
-            // User is not logged in
-            joinFreeNavItem.style.display = 'block';
-            loggedInUserNav.style.display = 'none';
+        if (!username) {
+             document.getElementById('register-username-error').textContent = 'Username is required.';
+             document.getElementById('register-username-error').classList.add('d-block');
+             document.getElementById('register-username').classList.add('is-invalid');
+            isValid = false;
         }
-    }
 
-    // Initial load
-    loadPopularSkills();
-    loadTestimonials();
-    checkLoginStatus();
-});
+        if (!email) {
+             document.getElementById('register-email-error').textContent = 'Email is required.';
+             document.getElementById('register-email-error').classList.add('d-block');
+             document.getElementById('register-email').classList.add('is-invalid');
+            isValid = false;
+        } else if (!validateEmail(email)) {
+            document.getElementById('register-email-error').textContent = 'Invalid email format.';
+            document.getElementById('register-email-error').classList.add('d-block');
+            document.getElementById('register-email').classList.add('is-invalid');
+            isValid = false;
+        }
+
+       if (!password) {
+             document.getElementById('register-password-error').textContent = 'Password is required.';
+            document.getElementById('register-password-error').classList.add('d-block');
+             document.getElementById('register-password').classList.add('is-invalid');
+            isValid = false;
+        }else if (!validatePassword(password)) {
+            document.getElementById('register-password-error').textContent = 'Password must be at least 8 characters with numbers and letters.';
+            document.getElementById('register-password-error').classList.add('d-block');
+             document.getElementById('register-password').classList.add('is-invalid');
+            isValid = false;
+        }
+
+        if (password !== confirmPassword) {
+           document.getElementById('register-confirm-password-error').textContent = 'Passwords do not match.';
+            document.getElementById('register-confirm-password-error').classList.add('d-block');
+             document.getElementById('register-confirm-password').classList.add('is-invalid');
+            isValid = false;
+        }
+
+        if (!termsCheckbox.checked) {
+             document.getElementById('register-terms-error').textContent = 'You must agree to the terms.';
+            document.getElementById('register-terms-error').classList.add('d-block');
+            isValid = false;
+        }
+
+        if (!isValid) return; // Stop if validation fails.
+
+        // Create user data object
+        const userData = {
+            firstname,
+            lastname,
+            username,
+            email,
+            password
+        };
+
+        // Call registerUser function (from userModule)
+        const result = window.userModule.registerUser(userData);
+
+        if (result.success) {
+            // Show success message and optionally clear the form.
+             document.getElementById('registration-success').style.display = 'block';
+            registrationForm.reset();
+             //add auto login after succesfull registration
+            window.userModule.loginUser(userData.email,userData.password);
+
+        } else {
+            // Show error message
+            document.getElementById('register-error').classList.remove('d-none');
+            document.getElementById('register-error').textContent = result.message;
+        }
+    });
+}
+
+
+  // Handle login form submission
+const loginForm = document.getElementById('loginForm');
+if (loginForm) {
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Reset errors
+        document.getElementById('login-error').classList.add('d-none');
+        document.getElementById('login-error').textContent = '';
+
+        // Get all elements with class 'invalid-feedback' within the login form
+        const invalidFeedbackElements = loginForm.querySelectorAll('.invalid-feedback');
+        invalidFeedbackElements.forEach(element => {
+            element.textContent = ''; // Clear the error message
+        });
+
+        //remove the is-invalid class from all form-controls
+        const formControlElements = loginForm.querySelectorAll('.form-control');
+        formControlElements.forEach(element => {
+            element.classList.remove('is-invalid');
+        });
+
+        const email = document.getElementById('login-email').value.trim();
+        const password = document.getElementById('login-password').value;
+        let isValid = true;
+
+        // Basic validation with proper error handling
+        if (!email) {
+            const errorElement = document.getElementById('login-email-error');
+            if (errorElement) {
+                errorElement.textContent = 'Email is required.';
+                document.getElementById('login-email').classList.add('is-invalid');
+            }
+            isValid = false;
+        } else if (!validateEmail(email)) {
+            const errorElement = document.getElementById('login-email-error');
+            if (errorElement) {
+                errorElement.textContent = 'Invalid email format.';
+                  document.getElementById('login-email').classList.add('is-invalid');
+            }
+            isValid = false;
+        }
+
+        if (!password) {
+            const errorElement = document.getElementById('login-password-error');
+            if (errorElement) {
+                errorElement.textContent = 'Password is required.';
+                 document.getElementById('login-password').classList.add('is-invalid');
+            }
+            isValid = false;
+        }
+
+        if (!isValid) {
+            return;
+        }
+
+        const result = window.userModule.loginUser(email, password); // USE THE MODULE!
+
+        if (!result.success) { // Only handle the error case. Success is handled by loginUser.
+            // Show error message
+            document.getElementById('login-error').classList.remove('d-none');
+            document.getElementById('login-error').textContent = result.message;
+        }
+    });
+}
+ //password show/hide feature for register page
+const togglePassword = document.getElementById('togglePassword');
+const registerPassword = document.getElementById('register-password');
+if(togglePassword){
+    togglePassword.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const type = registerPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+        registerPassword.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.querySelector('i').classList.toggle('fa-eye');
+        this.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+}
+ //password show/hide feature for login page
+const toggleLoginPassword = document.getElementById('toggleLoginPassword');
+const loginPassword = document.getElementById('login-password');
+if(toggleLoginPassword){
+    toggleLoginPassword.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+        loginPassword.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.querySelector('i').classList.toggle('fa-eye');
+        this.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+}
+
+})();

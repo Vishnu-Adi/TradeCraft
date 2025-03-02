@@ -1,6 +1,6 @@
-
+/Users/vishnuadithya/Documents/Projects/php/community-skill-exchange/pages/profile.html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="profile-page">  <!-- Added id for page-specific JS -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,7 @@
                 <i class="fas fa-people-arrows me-2"></i>
                 SkillSwap
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -42,16 +42,16 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="messages.html">
-                            <i class="fas fa-comment me-1"></i> 
+                            <i class="fas fa-comment me-1"></i>
                             Messages <span class="badge rounded-pill bg-danger">3</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="profileDropdown" role="button" 
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" 
-                                 class="rounded-circle me-1" width="24" height="24" alt="Profile">
-                            John Doe
+                         <!-- Logged-in user dropdown -->
+                        <a class="nav-link dropdown-toggle active" href="#" id="profileDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="" class="rounded-circle me-1" width="24" height="24" alt="Profile" id="nav-profile-image">
+                            <span id="nav-username"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                             <li><a class="dropdown-item active" href="profile.html">
@@ -61,7 +61,7 @@
                                 <i class="fas fa-cog me-2"></i> Settings
                             </a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="../index.html">
+                            <li><a class="dropdown-item" href="../index.html" id="logout-link">  <!-- Corrected ID -->
                                 <i class="fas fa-sign-out-alt me-2"></i> Logout
                             </a></li>
                         </ul>
@@ -79,80 +79,105 @@
                     <div class="card-body p-0">
                         <!-- Cover Image -->
                         <div class="profile-cover-bg bg-primary" style="height: 100px;"></div>
-                        
+
                         <!-- Profile Image and Basic Info -->
                         <div class="text-center p-4 position-relative">
                             <div class="position-absolute top-0 start-50 translate-middle">
-                                <div class="position-relative">
-                                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" 
-                                         class="rounded-circle border border-3 border-white" width="100" height="100" alt="John Doe">
-                                    <button class="btn btn-sm btn-primary position-absolute bottom-0 end-0 rounded-circle p-1" 
-                                            title="Change photo">
-                                        <i class="fas fa-camera"></i>
-                                    </button>
+                                 <div class="position-relative" id="profile-image-container">
+                                    <!-- Profile image will be loaded dynamically here -->
                                 </div>
                             </div>
-                            
-                            <h3 class="mt-5 mb-1">John Doe</h3>
-                            <p class="text-muted mb-3">Front-end Developer</p>
-                            
+
+                            <h3 class="mt-5 mb-1" id="profile-name"></h3>
+                            <p class="text-muted mb-3" id="profile-role"></p>
+
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="px-3 border-end">
-                                    <h5 class="mb-0">24</h5>
+                                    <h5 class="mb-0" id="profile-skills-count"></h5>
                                     <small class="text-muted">Skills</small>
                                 </div>
                                 <div class="px-3 border-end">
-                                    <h5 class="mb-0">18</h5>
+                                    <h5 class="mb-0" id="profile-exchanges-count"></h5>
                                     <small class="text-muted">Exchanges</small>
                                 </div>
                                 <div class="px-3">
-                                    <h5 class="mb-0">4.8</h5>
-                                    <div class="text-warning">
-                                        <i class="fas fa-star fa-xs"></i>
-                                        <i class="fas fa-star fa-xs"></i>
-                                        <i class="fas fa-star fa-xs"></i>
-                                        <i class="fas fa-star fa-xs"></i>
-                                        <i class="fas fa-star-half-alt fa-xs"></i>
+                                    <h5 class="mb-0" id="profile-rating"></h5>
+                                     <div class="text-warning" id="profile-rating-stars">
+
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="d-flex justify-content-center">
-                                <a href="#" class="btn btn-sm btn-outline-primary me-2">
+
+                            <div class="d-flex justify-content-center" id="profile-action-buttons">
+                                <button class="btn btn-sm btn-outline-primary me-2" id="edit-profile-btn">
                                     <i class="fas fa-edit me-1"></i> Edit Profile
-                                </a>
+                                </button>
                                 <a href="exchange.html" class="btn btn-sm btn-primary">
                                     <i class="fas fa-exchange-alt me-1"></i> Start Exchange
                                 </a>
                             </div>
+                             <!-- Edit Profile Form (Initially Hidden) -->
+                            <form id="edit-profile-form" style="display: none;" class="mt-4">
+                                <div class="mb-3">
+                                    <label for="edit-name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="edit-name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-role" class="form-label">Role</label>
+                                    <input type="text" class="form-control" id="edit-role">
+                                </div>
+                                 <div class="mb-3">
+                                    <label for="edit-profile-image" class="form-label">Profile Image URL</label>
+                                    <input type="text" class="form-control" id="edit-profile-image">
+                                    <small class="form-text text-muted">Enter a URL to an image for your profile.</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-about" class="form-label">About Me</label>
+                                    <textarea class="form-control" id="edit-about" rows="3"></textarea>
+                                </div>
+                                 <div class="mb-3">
+                                    <label for="edit-location" class="form-label">Location</label>
+                                    <input type="text" class="form-control" id="edit-location">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="edit-email">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="edit-website" class="form-label">Website</label>
+                                    <input type="url" class="form-control" id="edit-website">
+                                </div>
+                                <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+                                <button type="button" class="btn btn-outline-secondary" id="cancel-edit-btn">Cancel</button>
+                            </form>
                         </div>
                         <hr class="m-0">
-                        <div class="p-4">
+                        <div class="p-4" id="profile-details">
                             <h5 class="mb-3">About Me</h5>
-                            <p>Front-end developer with 5+ years of experience creating responsive and interactive web applications. Passionate about UI/UX design and accessible web development.</p>
-                            
+                            <p id="profile-about"></p>
+
                             <div class="d-flex align-items-center mb-2">
                                 <i class="fas fa-map-marker-alt text-muted me-3"></i>
-                                <span>San Francisco, CA</span>
+                                <span id="profile-location"></span>
                             </div>
                             <div class="d-flex align-items-center mb-2">
                                 <i class="fas fa-envelope text-muted me-3"></i>
-                                <span>john.doe@example.com</span>
+                                <span id="profile-email"></span>
                             </div>
                             <div class="d-flex align-items-center mb-2">
                                 <i class="fas fa-globe text-muted me-3"></i>
-                                <a href="#" class="text-decoration-none">portfolio-website.com</a>
+                                <a href="#" class="text-decoration-none" id="profile-website"></a>
                             </div>
                             <div class="d-flex align-items-center mb-2">
                                 <i class="fas fa-calendar text-muted me-3"></i>
-                                <span>Member since Feb 2023</span>
+                                <span id="profile-member-since"></span>
                             </div>
-                            
+
                             <hr>
-                            
+
                             <h5 class="mb-3">Connect</h5>
-                            <div class="d-flex">
-                                <a href="#" class="btn btn-outline-secondary btn-sm me-2 rounded-circle">
+                            <div class="d-flex" id="profile-connect">
+                                 <a href="#" class="btn btn-outline-secondary btn-sm me-2 rounded-circle">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
                                 <a href="#" class="btn btn-outline-secondary btn-sm me-2 rounded-circle">
@@ -169,26 +194,26 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Right Column - Tabs -->
             <div class="col-lg-8">
                 <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
                     <div class="card-header bg-white p-0">
                         <ul class="nav nav-tabs nav-fill" id="profileTabs" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active py-3" id="skills-tab" data-bs-toggle="tab" 
+                                <button class="nav-link active py-3" id="skills-tab" data-bs-toggle="tab"
                                         data-bs-target="#skills" type="button" role="tab" aria-selected="true">
                                     <i class="fas fa-tools me-2"></i> My Skills
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link py-3" id="portfolio-tab" data-bs-toggle="tab" 
+                                <button class="nav-link py-3" id="portfolio-tab" data-bs-toggle="tab"
                                         data-bs-target="#portfolio" type="button" role="tab" aria-selected="false">
                                     <i class="fas fa-folder-open me-2"></i> Portfolio
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link py-3" id="reviews-tab" data-bs-toggle="tab" 
+                                <button class="nav-link py-3" id="reviews-tab" data-bs-toggle="tab"
                                         data-bs-target="#reviews" type="button" role="tab" aria-selected="false">
                                     <i class="fas fa-star me-2"></i> Reviews
                                 </button>
@@ -201,105 +226,22 @@
                             <div class="tab-pane fade show active" id="skills" role="tabpanel">
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <h5 class="mb-0">Skills I Can Share</h5>
-                                    <button class="btn btn-sm btn-outline-primary">
+                                    <button class="btn btn-sm btn-outline-primary" id="add-skill-btn">  <!-- Corrected ID -->
                                         <i class="fas fa-plus me-1"></i> Add New Skill
                                     </button>
                                 </div>
-                                
+
                                 <!-- Skill Cards -->
-                                <div class="row">
-                                    <!-- Skill 1 -->
-                                    <div class="col-md-6 mb-3">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between">
-                                                    <h6 class="card-title">Front-end Development</h6>
-                                                    <span class="badge bg-primary">Expert</span>
-                                                </div>
-                                                <p class="card-text small">HTML5, CSS3, JavaScript, React.js, Vue.js, Responsive Design</p>
-                                                <div class="mt-2">
-                                                    <span class="badge bg-light text-dark me-1">React</span>
-                                                    <span class="badge bg-light text-dark me-1">JavaScript</span>
-                                                    <span class="badge bg-light text-dark">CSS</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Skill 2 -->
-                                    <div class="col-md-6 mb-3">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between">
-                                                    <h6 class="card-title">UI/UX Design</h6>
-                                                    <span class="badge bg-success">Advanced</span>
-                                                </div>
-                                                <p class="card-text small">Wireframing, Prototyping, User Testing, Figma, Adobe XD</p>
-                                                <div class="mt-2">
-                                                    <span class="badge bg-light text-dark me-1">Figma</span>
-                                                    <span class="badge bg-light text-dark me-1">Wireframes</span>
-                                                    <span class="badge bg-light text-dark">Prototypes</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Skill 3 -->
-                                    <div class="col-md-6 mb-3">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between">
-                                                    <h6 class="card-title">Digital Photography</h6>
-                                                    <span class="badge bg-info">Intermediate</span>
-                                                </div>
-                                                <p class="card-text small">Portrait photography, natural light, basic editing with Lightroom</p>
-                                                <div class="mt-2">
-                                                    <span class="badge bg-light text-dark me-1">Portraits</span>
-                                                    <span class="badge bg-light text-dark me-1">Lightroom</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Skill 4 -->
-                                    <div class="col-md-6 mb-3">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between">
-                                                    <h6 class="card-title">Guitar Lessons</h6>
-                                                    <span class="badge bg-success">Advanced</span>
-                                                </div>
-                                                <p class="card-text small">Acoustic and electric guitar, music theory, songwriting basics</p>
-                                                <div class="mt-2">
-                                                    <span class="badge bg-light text-dark me-1">Acoustic</span>
-                                                    <span class="badge bg-light text-dark me-1">Theory</span>
-                                                    <span class="badge bg-light text-dark">Songs</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="row" id="skills-container">
+                                   <!-- skills go here -->
                                 </div>
-                                
+
                                 <h5 class="mt-4 mb-3">Skills I Want to Learn</h5>
-                                <div class="d-flex flex-wrap gap-2 mb-4">
-                                    <span class="badge bg-light text-dark p-2">
-                                        <i class="fas fa-plus-circle text-primary me-1"></i> 3D Modeling
-                                    </span>
-                                    <span class="badge bg-light text-dark p-2">
-                                        <i class="fas fa-plus-circle text-primary me-1"></i> Spanish Language
-                                    </span>
-                                    <span class="badge bg-light text-dark p-2">
-                                        <i class="fas fa-plus-circle text-primary me-1"></i> Baking
-                                    </span>
-                                    <span class="badge bg-light text-dark p-2">
-                                        <i class="fas fa-plus-circle text-primary me-1"></i> Digital Marketing
-                                    </span>
-                                    <button class="badge bg-primary p-2 border-0">
-                                        <i class="fas fa-plus me-1"></i> Add More
-                                    </button>
+                                <div class="d-flex flex-wrap gap-2 mb-4" id="learning-skills-container">
+                                   <!-- Skills I want to learn will go here -->
                                 </div>
                             </div>
-                            
+
                             <!-- Portfolio Tab -->
                             <div class="tab-pane fade" id="portfolio" role="tabpanel">
                                 <div class="d-flex justify-content-between align-items-center mb-4">
@@ -308,92 +250,27 @@
                                         <i class="fas fa-plus me-1"></i> Add Project
                                     </button>
                                 </div>
-                                
-                                <div class="row">
-                                    <!-- Portfolio Item 1 -->
-                                    <div class="col-md-6 mb-4">
-                                        <div class="card">
-                                            <img src="https://via.placeholder.com/600x400?text=E-commerce+Website" class="card-img-top" alt="E-commerce Website">
-                                            <div class="card-body">
-                                                <h6>E-commerce Website</h6>
-                                                <p class="small text-muted">A responsive e-commerce site built with React and Node.js</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Portfolio Item 2 -->
-                                    <div class="col-md-6 mb-4">
-                                        <div class="card">
-                                            <img src="https://via.placeholder.com/600x400?text=Mobile+App+Design" class="card-img-top" alt="Mobile App Design">
-                                            <div class="card-body">
-                                                <h6>Health Tracker App Design</h6>
-                                                <p class="small text-muted">UI/UX design for a health tracking mobile application</p>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                <div class="row" id="portfolio-container">
+                                    <!-- Portfolio items will be loaded here dynamically -->
                                 </div>
                             </div>
-                            
+
                             <!-- Reviews Tab -->
                             <div class="tab-pane fade" id="reviews" role="tabpanel">
                                 <div class="d-flex align-items-center mb-4">
                                     <h5 class="mb-0 me-3">Reviews</h5>
-                                    <div class="text-warning me-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
+                                     <div class="text-warning" id="reviews-average-stars">
+
                                     </div>
-                                    <span class="text-muted">4.8 (13 reviews)</span>
+                                    <span class="text-muted" id="reviews-count"></span>
                                 </div>
-                                
-                                <!-- Review Item -->
-                                <div class="card mb-3">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <img src="https://ui-avatars.com/api/?name=Sarah+M&background=6b7280&color=fff" class="rounded-circle me-3" width="40" height="40" alt="Sarah M">
-                                            <div>
-                                                <h6 class="mb-0">Sarah M.</h6>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="text-warning me-2">
-                                                        <i class="fas fa-star fa-sm"></i>
-                                                        <i class="fas fa-star fa-sm"></i>
-                                                        <i class="fas fa-star fa-sm"></i>
-                                                        <i class="fas fa-star fa-sm"></i>
-                                                        <i class="fas fa-star fa-sm"></i>
-                                                    </div>
-                                                    <small class="text-muted">2 weeks ago</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="mb-0">John helped me learn the basics of React.js and was an excellent teacher! He was patient, knowledgeable, and provided great examples. Would definitely recommend!</p>
-                                    </div>
+
+                                <!-- Review Items -->
+                                <div id="reviews-container">
+                                        <!-- review cards go here -->
                                 </div>
-                                
-                                <!-- Review Item -->
-                                <div class="card mb-3">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <img src="https://ui-avatars.com/api/?name=Michael+T&background=6b7280&color=fff" class="rounded-circle me-3" width="40" height="40" alt="Michael T">
-                                            <div>
-                                                <h6 class="mb-0">Michael T.</h6>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="text-warning me-2">
-                                                        <i class="fas fa-star fa-sm"></i>
-                                                        <i class="fas fa-star fa-sm"></i>
-                                                        <i class="fas fa-star fa-sm"></i>
-                                                        <i class="fas fa-star fa-sm"></i>
-                                                        <i class="fas fa-star-half-alt fa-sm"></i>
-                                                    </div>
-                                                    <small class="text-muted">1 month ago</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="mb-0">Had a great session with John where he reviewed my portfolio website and gave me insightful feedback on UI improvements. He has a great eye for design and provided practical solutions.</p>
-                                    </div>
-                                </div>
-                                
+
                                 <div class="text-center mt-4">
                                     <button class="btn btn-outline-primary">Load More Reviews</button>
                                 </div>
@@ -404,7 +281,54 @@
             </div>
         </div>
     </div>
-    
+
+      <!-- Add Skill Modal -->
+    <div class="modal fade" id="addSkillModal" tabindex="-1" aria-labelledby="addSkillModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addSkillModalLabel">Add New Skill</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="new-skill-form">
+                        <div class="mb-3">
+                            <label for="new-skill-name" class="form-label">Skill Name</label>
+                            <input type="text" class="form-control" id="new-skill-name" required>
+                        </div>
+                         <div class="mb-3">
+                            <label for="new-skill-type" class="form-label">Skill Type</label>
+                            <select class="form-select" id="new-skill-type" required>
+                                <option value="share">I Can Share</option>
+                                <option value="learn">I Want to Learn</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="new-skill-level" class="form-label">Skill Level</label>
+                            <select class="form-select" id="new-skill-level" required>
+                                <option value="Beginner">Beginner</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Advanced">Advanced</option>
+                                <option value="Expert">Expert</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="new-skill-description" class="form-label">Description (Optional)</label>
+                            <textarea class="form-control" id="new-skill-description" rows="3"></textarea>
+                        </div>
+                         <div class="mb-3">
+                            <label for="new-skill-tags" class="form-label">Tags (comma-separated)</label>
+                            <input type="text" class="form-control" id="new-skill-tags">
+                            <small class="form-text text-muted">e.g., JavaScript, React, Design</small>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Add Skill</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -447,13 +371,16 @@
             </div>
             <hr class="my-4 bg-white">
             <div class="text-center">
-                <p class="mb-0">&copy; 2025 SkillSwap Community. All rights reserved.</p>
+                <p class="mb-0">© 2025 SkillSwap Community. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/validation.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="../js/user.js"></script>
+    <script src="../js/profile.js"></script>  <!-- Corrected path -->
+    <script src="../js/ui.js"></script>       <!-- Corrected path -->
+    <script src="../js/storage.js"></script>  <!-- Corrected Path -->
 </body>
+
 </html>

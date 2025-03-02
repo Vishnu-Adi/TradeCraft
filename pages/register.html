@@ -1,4 +1,3 @@
-<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body data-pg-name="register">  <!-- Add this -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="../index.html">
@@ -54,10 +53,10 @@
                         <p class="text-center text-muted mb-4">Join our community of skill-sharing enthusiasts</p>
                         
                         <div class="d-flex justify-content-center mb-4">
-                            <button class="btn btn-outline-secondary me-2">
+                            <button class="btn btn-outline-secondary me-2" onclick="window.location.href='#'">
                                 <i class="fab fa-google me-2"></i> Sign up with Google
                             </button>
-                            <button class="btn btn-outline-secondary">
+                            <button class="btn btn-outline-secondary"  onclick="window.location.href='#'">
                                 <i class="fab fa-facebook-f me-2"></i> Sign up with Facebook
                             </button>
                         </div>
@@ -66,17 +65,19 @@
                             <span class="divider-text">Or register with email</span>
                         </div>
 
-                        <form id="registrationForm" onsubmit="return validateRegistrationForm()">
+                        <form id="registrationForm">
                             <div class="alert alert-danger d-none" id="register-error"></div>
-                            
+
                             <div class="row mb-3">
                                 <div class="col-md-6 mb-3 mb-md-0">
                                     <label for="register-firstname" class="form-label">First Name</label>
                                     <input type="text" class="form-control" id="register-firstname" placeholder="Enter first name" required>
+                                    <div class="invalid-feedback" id="register-firstname-error"></div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="register-lastname" class="form-label">Last Name</label>
                                     <input type="text" class="form-control" id="register-lastname" placeholder="Enter last name" required>
+                                     <div class="invalid-feedback" id="register-lastname-error"></div>
                                 </div>
                             </div>
 
@@ -85,12 +86,15 @@
                                 <div class="input-group">
                                     <span class="input-group-text">@</span>
                                     <input type="text" class="form-control" id="register-username" placeholder="Choose username" required>
+                                     
                                 </div>
+                                 <div class="invalid-feedback" id="register-username-error"></div>
                             </div>
                             
                             <div class="mb-3">
                                 <label for="register-email" class="form-label">Email Address</label>
                                 <input type="email" class="form-control" id="register-email" placeholder="name@example.com" required>
+                                 <div class="invalid-feedback" id="register-email-error"></div>
                             </div>
                             
                             <div class="mb-3">
@@ -104,11 +108,13 @@
                                 <div class="form-text">
                                     Password must be at least 8 characters with numbers and letters
                                 </div>
+                                 <div class="invalid-feedback" id="register-password-error"></div>
                             </div>
                             
                             <div class="mb-3">
                                 <label for="register-confirm-password" class="form-label">Confirm Password</label>
                                 <input type="password" class="form-control" id="register-confirm-password" placeholder="Confirm your password" required>
+                                 <div class="invalid-feedback" id="register-confirm-password-error"></div>
                             </div>
                             
                             <div class="mb-3 form-check">
@@ -116,11 +122,15 @@
                                 <label class="form-check-label" for="terms-checkbox">
                                     I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
                                 </label>
+                                 <div class="invalid-feedback" id="register-terms-error"></div>
                             </div>
                             
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-primary btn-lg">Create Account</button>
                             </div>
+                             <div id="registration-success" class="alert alert-success mt-3" style="display: none;">
+                            Registration successful! You can now <a href="login.html">login</a>.
+                        </div>
                         </form>
                         
                         <div class="text-center mt-4">
@@ -160,221 +170,17 @@
             </div>
             <hr class="my-4 bg-white">
             <div class="text-center">
-                <p class="mb-0">&copy; 2025 SkillSwap Community. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/validation.js"></script>
-    <script src="../js/main.js"></script>
-    <script>
-        // Toggle password visibility
-        document.getElementById('togglePassword').addEventListener('click', function() {
-            const passwordInput = document.getElementById('register-password');
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                this.innerHTML = '<i class="fas fa-eye-slash"></i>';
-            } else {
-                passwordInput.type = 'password';
-                this.innerHTML = '<i class="fas fa-eye"></i>';
-            }
-        });
-    </script>
-</body>
-</html> -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Community Skill Exchange</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- REMOVED Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/register.css"> <!-- NEW CSS Link -->
-</head>
-<body data-pg-name="register">
-   <nav class="site-navbar">
-        <div class="navbar-container">
-            <a class="navbar-brand" href="../index.html">
-                <i class="fas fa-people-arrows me-2"></i>
-                SkillSwap
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="skills.html">
-                            <i class="fas fa-search me-1"></i> Explore
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">
-                            <i class="fas fa-sign-in-alt me-1"></i> Login
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-btn active" href="register.html">
-                            Join Free
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="page-container">
-        <div class="register-card">
-            <div class="card-body">
-                <h1 class="form-title">Create Your Account</h1>
-                <p class="form-subtitle">Join our community of skill-sharing enthusiasts</p>
-                
-                <div class="social-signup">
-                    <button class="btn-social">
-                        <i class="fab fa-google me-2"></i> Sign up with Google
-                    </button>
-                    <button class="btn-social">
-                        <i class="fab fa-facebook-f me-2"></i> Sign up with Facebook
-                    </button>
-                </div>
-                
-                <div class="divider">
-                    <span>Or register with email</span>
-                </div>
-
-                <form id="registrationForm" onsubmit="return validateRegistrationForm()" class="register-form">
-                    <div class="alert-danger" id="register-error"></div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="register-firstname" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="register-firstname" placeholder="Enter first name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="register-lastname" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="register-lastname" placeholder="Enter last name" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="register-username" class="form-label">Username</label>
-                        <div class="input-group">
-                            <span class="input-group-text">@</span>
-                            <input type="text" class="form-control" id="register-username" placeholder="Choose username" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="register-email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="register-email" placeholder="name@example.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="register-password" class="form-label">Password</label>
-                        <div class="input-group">
-                            <input type="password" class="form-control" id="register-password" placeholder="Create a strong password" required>
-                            <button class="btn-toggle-password" type="button" id="togglePassword">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
-                        <div class="password-requirements">
-                            Password must be at least 8 characters with numbers and letters
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="register-confirm-password" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="register-confirm-password" placeholder="Confirm your password" required>
-                    </div>
-                    
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="terms-checkbox" required>
-                        <label class="form-check-label" for="terms-checkbox">
-                            I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
-                        </label>
-                    </div>
-                    
-                    <div class="button-container">
-                        <button type="submit" class="btn-submit">Create Account</button>
-                    </div>
-                </form>
-                
-                <div class="login-link">
-                    <p>Already have an account? <a href="login.html">Login here</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-   <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-row">
-                <div class="footer-col">
-                    <h5 class="mb-3">SkillSwap</h5>
-                    <p>A community-driven platform for exchanging skills and knowledge without monetary transactions.</p>
-                    <div class="social-links">
-                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h5 class="mb-3">Links</h5>
-                    <ul class="footer-links">
-                        <li><a href="#" class="text-white">About Us</a></li>
-                        <li><a href="#" class="text-white">How It Works</a></li>
-                        <li><a href="#" class="text-white">FAQs</a></li>
-                        <li><a href="#" class="text-white">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h5 class="mb-3">Categories</h5>
-                    <ul class="footer-links">
-                        <li><a href="#" class="text-white">Technology</a></li>
-                        <li><a href="#" class="text-white">Art & Design</a></li>
-                        <li><a href="#" class="text-white">Languages</a></li>
-                        <li><a href="#" class="text-white">Music</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h5 class="mb-3">Newsletter</h5>
-                    <p>Subscribe to our newsletter for updates</p>
-                    <form class="subscribe-form">
-                        <input type="email" class="form-control" placeholder="Your email">
-                        <button class="subscribe-btn" type="submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            <hr class="footer-divider">
-            <div class="copyright-text">
                 <p class="mb-0">© 2025 SkillSwap Community. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/validation.js"></script>
-    <script src="../js/main.js"></script>
-    <script>
-        // Toggle password visibility
-        document.getElementById('togglePassword').addEventListener('click', function() {
-            const passwordInput = document.getElementById('register-password');
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                this.innerHTML = '<i class="fas fa-eye-slash"></i>';
-            } else {
-                passwordInput.type = 'password';
-                this.innerHTML = '<i class="fas fa-eye"></i>';
-            }
-        });
-    </script>
+  
+    <script src="../js/user.js"></script>
+     <script src="../js/ui.js"></script>
+    <script src="../js/storage.js"></script>
 </body>
+   
+
 </html>

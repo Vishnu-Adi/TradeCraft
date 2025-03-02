@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,11 +46,11 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" 
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f46e5&color=fff" 
-                                 class="rounded-circle me-1" width="24" height="24" alt="Profile">
-                            John Doe
+                         <!-- Logged-in user dropdown -->
+                        <a class="nav-link dropdown-toggle active" href="#" id="profileDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="" class="rounded-circle me-1" width="24" height="24" alt="Profile" id="nav-profile-image">
+                            <span id="nav-username"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                             <li><a class="dropdown-item" href="profile.html">
@@ -61,7 +60,7 @@
                                 <i class="fas fa-cog me-2"></i> Settings
                             </a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="../index.html">
+                             <li><a class="dropdown-item" href="../index.html" id="logout-link">
                                 <i class="fas fa-sign-out-alt me-2"></i> Logout
                             </a></li>
                         </ul>
@@ -95,7 +94,7 @@
                             </div>
                         </div>
                         <div>
-                            <h5 class="mb-0">18</h5>
+                            <h5 class="mb-0" id="active-exchanges-count"></h5>
                             <p class="text-muted mb-0">Active Exchanges</p>
                         </div>
                     </div>
@@ -110,7 +109,7 @@
                             </div>
                         </div>
                         <div>
-                            <h5 class="mb-0">24</h5>
+                            <h5 class="mb-0" id="offered-skills-count"></h5>
                             <p class="text-muted mb-0">Offered Skills</p>
                         </div>
                     </div>
@@ -125,7 +124,7 @@
                             </div>
                         </div>
                         <div>
-                            <h5 class="mb-0">4.8</h5>
+                            <h5 class="mb-0" id="average-rating-count"></h5>
                             <p class="text-muted mb-0">Average Rating</p>
                         </div>
                     </div>
@@ -140,7 +139,7 @@
                             </div>
                         </div>
                         <div>
-                            <h5 class="mb-0">12</h5>
+                            <h5 class="mb-0" id="messages-count"></h5>
                             <p class="text-muted mb-0">Messages</p>
                         </div>
                     </div>
@@ -170,79 +169,8 @@
                                         <th scope="col" class="text-end">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img src="https://ui-avatars.com/api/?name=Sarah+Rodriguez&background=6b7280&color=fff" 
-                                                     class="rounded-circle me-2" width="36" height="36" alt="Sarah Rodriguez">
-                                                <div>
-                                                    <h6 class="mb-0">Sarah Rodriguez</h6>
-                                                    <small class="text-muted">Marketing Consultant</small>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Digital Marketing</td>
-                                        <td><span class="badge bg-success">Active</span></td>
-                                        <td>Mar 1, 2025</td>
-                                        <td class="text-end">
-                                            <button class="btn btn-sm btn-light">Details</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img src="https://ui-avatars.com/api/?name=Michael+Chen&background=10b981&color=fff" 
-                                                     class="rounded-circle me-2" width="36" height="36" alt="Michael Chen">
-                                                <div>
-                                                    <h6 class="mb-0">Michael Chen</h6>
-                                                    <small class="text-muted">Software Engineer</small>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Web Development</td>
-                                        <td><span class="badge bg-warning">Scheduled</span></td>
-                                        <td>Mar 5, 2025</td>
-                                        <td class="text-end">
-                                            <button class="btn btn-sm btn-light">Details</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img src="https://ui-avatars.com/api/?name=Emma+Lewis&background=fbbf24&color=fff" 
-                                                     class="rounded-circle me-2" width="36" height="36" alt="Emma Lewis">
-                                                <div>
-                                                    <h6 class="mb-0">Emma Lewis</h6>
-                                                    <small class="text-muted">Pastry Chef</small>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Baking & Pastry</td>
-                                        <td><span class="badge bg-success">Active</span></td>
-                                        <td>Feb 28, 2025</td>
-                                        <td class="text-end">
-                                            <button class="btn btn-sm btn-light">Details</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img src="https://ui-avatars.com/api/?name=David+Wilson&background=ef4444&color=fff" 
-                                                     class="rounded-circle me-2" width="36" height="36" alt="David Wilson">
-                                                <div>
-                                                    <h6 class="mb-0">David Wilson</h6>
-                                                    <small class="text-muted">Music Instructor</small>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Piano Lessons</td>
-                                        <td><span class="badge bg-secondary">Completed</span></td>
-                                        <td>Feb 24, 2025</td>
-                                        <td class="text-end">
-                                            <button class="btn btn-sm btn-light">Details</button>
-                                        </td>
-                                    </tr>
+                                <tbody id="recent-exchanges-table">
+                                    <!-- Recent exchanges will be loaded here -->
                                 </tbody>
                             </table>
                         </div>
@@ -261,59 +189,8 @@
                         </div>
                     </div>
                     <div class="card-body p-0">
-                        <div class="list-group list-group-flush">
-                            <div class="list-group-item border-0 py-3 px-4">
-                                <div class="d-flex">
-                                    <div class="me-3">
-                                        <div class="bg-primary bg-opacity-10 p-2 rounded-circle text-primary">
-                                            <i class="fas fa-comment"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p class="mb-0"><strong>Michael Chen</strong> sent you a new message.</p>
-                                        <small class="text-muted">10 minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="list-group-item border-0 py-3 px-4">
-                                <div class="d-flex">
-                                    <div class="me-3">
-                                        <div class="bg-success bg-opacity-10 p-2 rounded-circle text-success">
-                                            <i class="fas fa-check-circle"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p class="mb-0"><strong>Emma Lewis</strong> accepted your exchange request.</p>
-                                        <small class="text-muted">1 hour ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="list-group-item border-0 py-3 px-4">
-                                <div class="d-flex">
-                                    <div class="me-3">
-                                        <div class="bg-warning bg-opacity-10 p-2 rounded-circle text-warning">
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p class="mb-0"><strong>Sarah Rodriguez</strong> left you a 5-star review.</p>
-                                        <small class="text-muted">3 hours ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="list-group-item border-0 py-3 px-4">
-                                <div class="d-flex">
-                                    <div class="me-3">
-                                        <div class="bg-info bg-opacity-10 p-2 rounded-circle text-info">
-                                            <i class="fas fa-calendar-alt"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p class="mb-0">Reminder: Piano lesson with David Wilson tomorrow at 3PM.</p>
-                                        <small class="text-muted">5 hours ago</small>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="list-group list-group-flush" id="notifications-list">
+                            <!-- Notifications will be loaded here -->
                         </div>
                     </div>
                 </div>
@@ -327,30 +204,30 @@
                         <div class="mb-4">
                             <div class="d-flex justify-content-between mb-1">
                                 <span>Profile Completion</span>
-                                <span>85%</span>
+                                <span id="profile-completion-percent"></span>
                             </div>
                             <div class="progress" style="height: 8px;">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-success" role="progressbar" style="" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" id="profile-completion-bar"></div>
                             </div>
                         </div>
                         
                         <div class="mb-4">
                             <div class="d-flex justify-content-between mb-1">
                                 <span>Skills Documented</span>
-                                <span>70%</span>
+                                <span id="skills-documented-percent"></span>
                             </div>
                             <div class="progress" style="height: 8px;">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-primary" role="progressbar" style="" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" id="skills-documented-bar"></div>
                             </div>
                         </div>
                         
                         <div>
                             <div class="d-flex justify-content-between mb-1">
                                 <span>Exchange Feedback</span>
-                                <span>50%</span>
+                                <span id="exchange-feedback-percent"></span>
                             </div>
                             <div class="progress" style="height: 8px;">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-warning" role="progressbar" style="" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" id="exchange-feedback-bar"></div>
                             </div>
                         </div>
                         
@@ -406,13 +283,16 @@
             </div>
             <hr class="my-4 bg-white">
             <div class="text-center">
-                <p class="mb-0">&copy; 2025 SkillSwap Community. All rights reserved.</p>
+                <p class="mb-0">© 2025 SkillSwap Community. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/validation.js"></script>
-    <script src="../js/main.js"></script>
-</body>
+    <script src="../js/user.js"></script>
+     <script src="../js/ui.js"></script>
+     <script src="../js/storage.js"></script>
+ </body>
+   
+
 </html>
