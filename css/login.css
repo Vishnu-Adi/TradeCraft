@@ -1,0 +1,509 @@
+/* login.css - Styles for the login.html page */
+
+/* General Body Styles */
+body[data-pg-name="login"] {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #f9fafb;
+    margin: 0;
+    padding: 0;
+    color: #1f2937;
+    line-height: 1.6;
+  }
+  
+  /* Navbar */
+  .site-navbar {
+    background: linear-gradient(135deg, #4e6bff, #3a54d6);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 0.75rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .navbar-container {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .navbar-toggler {
+    border: none;
+    background: none;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    font-size: 1.25rem;
+  }
+  
+  .navbar-toggler:focus {
+    outline: none;
+  }
+  
+  .navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+  
+  .navbar-collapse {
+    flex-grow: 1;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+  }
+  
+  .nav-item {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .nav-link:hover {
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-link.active {
+    color: white !important;
+    border: 1px solid white;
+  }
+  
+  .nav-btn {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.25rem;
+    margin-left: 0.5rem;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .nav-btn:hover {
+    background-color: white;
+    color: #4e6bff;
+  }
+  
+  @media (min-width: 768px) {
+    .navbar-collapse {
+      display: flex !important;
+    }
+    .navbar-toggler {
+      display: none;
+    }
+  }
+  
+  /* Main Content Area */
+  .page-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 7rem auto 5rem;
+  }
+  
+  .login-card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  .card-body {
+    padding: 2.5rem;
+  }
+  
+  .login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .login-icon {
+    color: #4e6bff;
+    margin-bottom: 1rem;
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+  }
+  
+  .form-subtitle {
+    color: #6b7280;
+    margin-bottom: 0;
+  }
+  
+  .login-form {
+    margin-top: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #4b5563;
+    display: block;
+  }
+  
+  .password-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .forgot-password-link {
+    font-size: 0.875rem;
+    color: #4e6bff;
+    text-decoration: none;
+  }
+  
+  .input-group {
+    display: flex;
+    align-items: stretch;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .input-group-text {
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5db;
+    border-right: none;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form-control {
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    flex-grow: 1;
+    min-width: 0;
+    border-left: none;
+  }
+  
+  .form-control:focus {
+    border-color: #4e6bff;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
+    outline: none;
+  }
+  
+  .btn-toggle-password {
+    background-color: #fff;
+    border: 1px solid #d1d5db;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    cursor: pointer;
+    border-left: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-toggle-password:focus {
+    outline: none;
+  }
+  
+  .form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-check-input {
+    margin-right: 0.5rem;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.25em;
+    vertical-align: top;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+    border-radius: 0.25em;
+  }
+  
+  .form-check-input:checked {
+    background-color: #4e6bff;
+    border-color: #4e6bff;
+  }
+  
+  .form-check-input:checked[type="checkbox"] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+  }
+  
+  .btn-submit {
+    background: linear-gradient(135deg, #4e6bff, #3a54d6);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    width: 100%;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn-submit:hover {
+    background: linear-gradient(135deg, #3a54d6, #2a3eb1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .social-login {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  
+  .social-login p {
+    color: #6b7280;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  
+  .social-login p::before,
+  .social-login p::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background-color: #e5e7eb;
+  }
+  
+  .social-login p::before {
+    left: 0;
+  }
+  
+  .social-login p::after {
+    right: 0;
+  }
+  
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  
+  .btn-social {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border: none;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-social:hover {
+    background-color: #e5e7eb;
+    transform: translateY(-2px);
+  }
+  
+  .signup-link {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .signup-link p {
+    color: #6b7280;
+    margin-bottom: 0;
+  }
+  
+  .signup-link-text {
+    color: #4e6bff;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  /* Footer */
+  .site-footer {
+    background-color: #111827;
+    color: white;
+    padding: 3rem 0 1.5rem;
+  }
+  
+  .footer-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-col {
+    margin-bottom: 2rem;
+    flex-basis: 100%;
+  }
+  
+  @media (min-width: 768px) {
+    .footer-col {
+      flex-basis: calc(25% - 1rem);
+    }
+    .footer-col:first-child {
+      flex-basis: calc(40% - 1rem);
+    }
+  }
+  
+  .footer-col h5 {
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+  
+  .footer-col h5::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    width: 30px;
+    height: 2px;
+    background-color: #ff7846;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.2s ease;
+  }
+  
+  .social-links a:hover {
+    background-color: #ff7846;
+    transform: translateY(-3px);
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.75rem;
+  }
+  
+  .footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .footer-links a:hover {
+    color: white;
+    padding-left: 0.25rem;
+  }
+  
+  .subscribe-form {
+    display: flex;
+    margin-top: 1rem;
+  }
+  
+  .subscribe-form .form-control {
+    border-radius: 0.5rem 0 0 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    flex-grow: 1;
+  }
+  
+  .subscribe-form .form-control:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .subscribe-btn {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    transition: all 0.2s ease;
+  }
+  
+  .subscribe-btn:hover {
+    background-color: white;
+    color: #111827;
+  }
+  
+  .footer-divider {
+    margin: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .copyright-text {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.875rem;
+  }
+  
+  

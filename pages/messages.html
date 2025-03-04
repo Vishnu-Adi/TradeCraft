@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/messages.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -388,67 +389,6 @@
     <script src="../js/main.js"></script>
     <script src="../js/messages.js"></script>
 
-    <style>
-        /* Additional styles for messages page */
-        .contact-item {
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .contact-item:hover {
-            background-color: rgba(0,0,0,0.03);
-        }
-        .message-bubble.received {
-            background-color: #f3f4f6;
-            max-width: 75%;
-        }
-        .message-bubble.sent {
-            background-color: #4f46e5;
-            color: white;
-            max-width: 75%;
-        }
-        .typing-indicator {
-            background-color: #f3f4f6;
-            width: fit-content;
-            display: none;
-        }
-        .typing-indicator .dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: #a0aec0;
-            margin-right: 3px;
-            animation: typing 1.5s infinite ease-in-out;
-        }
-        .typing-indicator .dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        .typing-indicator .dot:nth-child(3) {
-            animation-delay: 0.4s;
-            margin-right: 0;
-        }
-        @keyframes typing {
-            0%, 60%, 100% { transform: translateY(0); }
-            30% { transform: translateY(-5px); }
-        }
-        
-        /* Mobile responsive styles */
-        @media (max-width: 767.98px) {
-            .col-md-8.col-lg-9 {
-                display: none;  /* Hide chat area by default on mobile */
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 10;
-                background: white;
-            }
-            
-            .contact-item {
-                padding: 10px;
-            }
-        }
-    </style>
+
 </body>
 </html>

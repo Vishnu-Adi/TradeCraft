@@ -1,27 +1,26 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Skill Exchange - Share & Learn Skills</title>
+    <title>SkillSwap - Exchange Skills, Build Community</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
                     <i class="fas fa-people-arrows me-2"></i>
                     SkillSwap
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -42,8 +41,8 @@
                                 <i class="fas fa-sign-in-alt me-1"></i> Login
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-outline-light ms-2 px-3" href="pages/register.html">
+                        <li class="nav-item ms-2">
+                            <a class="btn btn-outline-light rounded-pill px-3" href="pages/register.html">
                                 Join Free
                             </a>
                         </li>
@@ -51,159 +50,329 @@
                 </div>
             </div>
         </nav>
-        
+
         <section class="hero-section">
-            <div class="container">
-                <h1 class="animate-on-scroll">Share Skills. Grow Together.</h1>
-                <p class="mb-4 animate-on-scroll">Connect with a community of skilled individuals ready to exchange knowledge without money changing hands.</p>
-                <div class="mt-5 animate-on-scroll">
-                    <a href="pages/register.html" class="btn btn-light btn-lg me-3">
-                        <i class="fas fa-user-plus me-2"></i> Get Started
-                    </a>
-                    <a href="pages/skills.html" class="btn btn-outline-light btn-lg">
-                        <i class="fas fa-search me-2"></i> Explore Skills
-                    </a>
+            <div class="hero-pattern"></div>
+            <div class="hero-shape"></div>
+            <div class="container hero-content">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                        <h1 class="hero-title">Share Skills.<br>Grow Together.</h1>
+                        <p class="hero-subtitle">Connect with a community of skilled individuals ready to exchange knowledge without money changing hands.</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="pages/register.html" class="btn btn-light btn-lg">
+                                <i class="fas fa-user-plus me-2"></i> Get Started
+                            </a>
+                            <a href="pages/skills.html" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-search me-2"></i> Explore Skills
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="hero-image-container">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800" alt="People sharing skills" class="img-fluid hero-image">
+                            <div class="floating-icon-box box-1">
+                                <div class="floating-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="floating-text">Learn Coding</div>
+                            </div>
+                            <div class="floating-icon-box box-2">
+                                <div class="floating-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="floating-text">Grow Skills</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </header>
-    
+
     <main>
         <section class="features-section">
             <div class="container">
-                <h2 class="text-center mb-5">How It Works</h2>
+                <h2 class="section-title text-center mb-5" data-aos="fade-up">How SkillSwap Works</h2>
                 <div class="row">
-                    <div class="col-md-4 mb-4 animate-on-scroll">
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="card feature-card h-100">
-                            <div class="card-body">
+                            <div class="card-body text-center p-4">
                                 <div class="feature-icon">
                                     <i class="fas fa-user-plus"></i>
                                 </div>
-                                <h3>Create Profile</h3>
-                                <p>Sign up and create your profile highlighting your skills and expertise.</p>
+                                <h3 class="h4 mb-3">Create Profile</h3>
+                                <p class="mb-0">Sign up and create your profile highlighting your skills and expertise. Let others know what you can offer.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4 animate-on-scroll">
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="card feature-card h-100">
-                            <div class="card-body">
+                            <div class="card-body text-center p-4">
                                 <div class="feature-icon">
                                     <i class="fas fa-search"></i>
                                 </div>
-                                <h3>Discover Skills</h3>
-                                <p>Browse through various skills offered by community members.</p>
+                                <h3 class="h4 mb-3">Discover Skills</h3>
+                                <p class="mb-0">Browse through various skills offered by community members. Find exactly what you need to learn.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4 animate-on-scroll">
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="card feature-card h-100">
-                            <div class="card-body">
+                            <div class="card-body text-center p-4">
                                 <div class="feature-icon">
                                     <i class="fas fa-exchange-alt"></i>
                                 </div>
-                                <h3>Exchange & Learn</h3>
-                                <p>Connect with others and start exchanging skills without monetary transactions.</p>
+                                <h3 class="h4 mb-3">Exchange & Learn</h3>
+                                <p class="mb-0">Connect with others and start exchanging skills without monetary transactions. Grow your skillset.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <section class="bg-light py-5 animate-on-scroll">
+
+        <!-- Redesigned Categories Section -->
+        <section class="categories-section section-sm">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 mb-4 mb-lg-0">
-                        <h2>Popular Skill Categories</h2>
-                        <p class="mb-4">Discover the most sought-after skills in our community</p>
-                        <div class="d-flex flex-wrap gap-2">
-                            <span class="badge bg-primary p-2">Web Development</span>
-                            <span class="badge bg-primary p-2">Graphic Design</span>
-                            <span class="badge bg-primary p-2">Language Learning</span>
-                            <span class="badge bg-primary p-2">Music</span>
-                            <span class="badge bg-primary p-2">Photography</span>
-                            <span class="badge bg-primary p-2">Cooking</span>
-                            <span class="badge bg-primary p-2">Fitness</span>
-                            <span class="badge bg-primary p-2">Digital Marketing</span>
-                        </div>
+                <div class="row mb-5">
+                    <div class="col-lg-8" data-aos="fade-right">
+                        <h2 class="section-title">Discover Popular Skill Categories</h2>
+                        <p class="lead">Explore and connect with our diverse community of skilled individuals</p>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="card border-0 shadow-sm">
+                    <div class="col-lg-4 text-lg-end align-self-center" data-aos="fade-left">
+                        <a href="pages/skills.html" class="btn btn-primary">
+                            <i class="fas fa-th-large me-2"></i>View All Categories
+                        </a>
+                    </div>
+                </div>
+        
+                <div class="row g-4">
+                    <!-- Featured Category -->
+                    <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="card category-card featured h-100">
                             <div class="card-body p-4">
-                                <h3 class="mb-3">Join Our Community</h3>
-                                <p>Start your skill exchange journey today and connect with like-minded individuals.</p>
-                                <a href="pages/register.html" class="btn btn-primary">Sign Up Now</a>
+                                <span class="category-badge">Most Popular</span>
+                                <div class="category-icon-wrap">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <h4>Web Development</h4>
+                                <p>Learn HTML, CSS, JavaScript and modern frameworks from experts in the field. Build responsive websites and web applications.</p>
+                                <span class="category-count">1,240+ experts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Medium Categories -->
+                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="card category-card h-100">
+                            <div class="card-body p-4">
+                                <div class="category-icon-wrap">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <h4>Graphic Design</h4>
+                                <p>Master digital design tools and techniques</p>
+                                <span class="category-count">870+ experts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="card category-card h-100">
+                            <div class="card-body p-4">
+                                <div class="category-icon-wrap">
+                                    <i class="fas fa-bullhorn"></i>
+                                </div>
+                                <h4>Digital Marketing</h4>
+                                <p>Grow online presence and reach</p>
+                                <span class="category-count">640+ experts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Small Categories -->
+                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="card category-card h-100">
+                            <div class="card-body p-4 text-center">
+                                <div class="category-icon-wrap mx-auto">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <h4>Languages</h4>
+                                <span class="category-count">950+ experts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="card category-card h-100">
+                            <div class="card-body p-4 text-center">
+                                <div class="category-icon-wrap mx-auto">
+                                    <i class="fas fa-guitar"></i>
+                                </div>
+                                <h4>Music</h4>
+                                <span class="category-count">520+ experts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="card category-card h-100">
+                            <div class="card-body p-4 text-center">
+                                <div class="category-icon-wrap mx-auto">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <h4>Photography</h4>
+                                <span class="category-count">410+ experts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="card category-card h-100">
+                            <div class="card-body p-4 text-center">
+                                <div class="category-icon-wrap mx-auto">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <h4>Cooking</h4>
+                                <span class="category-count">380+ experts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Medium Category -->
+                    <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="card category-card h-100">
+                            <div class="card-body p-4">
+                                <div class="category-icon-wrap">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <h4>Data Science</h4>
+                                <p>Learn analytics, visualization, and machine learning techniques from experienced data scientists. Turn data into actionable insights.</p>
+                                <span class="category-count">560+ experts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="card category-card h-100">
+                            <div class="card-body p-4 text-center">
+                                <div class="category-icon-wrap mx-auto">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                                <h4>Fitness</h4>
+                                <span class="category-count">290+ experts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="card category-card h-100">
+                            <div class="card-body p-4 text-center">
+                                <div class="category-icon-wrap mx-auto">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <h4>Art & Crafts</h4>
+                                <span class="category-count">340+ experts</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <section class="py-5 animate-on-scroll">
+
+        <section class="stats-section section-sm">
             <div class="container">
-                <h2 class="text-center mb-5">What Our Community Says</h2>
                 <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
+                    <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-number" data-count="10000">10,000+</div>
+                            <div class="stat-label">Community Members</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="stat-number" data-count="25000">25,000+</div>
+                            <div class="stat-label">Skill Exchanges</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-number" data-count="4.8">4.8/5</div>
+                            <div class="stat-label">Average Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">What Our Members Say</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card testimonial-card h-100">
+                            <div class="card-body p-4">
+                                <div class="testimonial-avatar mb-3">
+                                    <span>JS</span>  <!-- Or use an img tag for profile pictures -->
                                 </div>
-                                <p class="card-text">"I learned web development by exchanging my graphic design skills. This platform has been a game-changer for my career."</p>
-                                <div class="d-flex align-items-center mt-3">
-                                    <div class="bg-primary rounded-circle text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">JD</div>
-                                    <div class="ms-3">
-                                        <h5 class="mb-0">John Doe</h5>
-                                        <small class="text-muted">Graphic Designer</small>
-                                    </div>
-                                </div>
+                                <blockquote class="blockquote mb-3">
+                                    <p>"SkillSwap has been a game-changer! I learned Python from a fellow member and taught them photography in return. It's a win-win!"</p>
+                                </blockquote>
+                                <cite class="d-block text-muted">- Jane Smith, Web Developer</cite>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card testimonial-card h-100">
+                            <div class="card-body p-4">
+                                <div class="testimonial-avatar mb-3">
+                                  <span>MK</span>
                                 </div>
-                                <p class="card-text">"I've been teaching Spanish and learning piano through this platform. The community is so supportive and talented!"</p>
-                                <div class="d-flex align-items-center mt-3">
-                                    <div class="bg-primary rounded-circle text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">MS</div>
-                                    <div class="ms-3">
-                                        <h5 class="mb-0">Maria Santiago</h5>
-                                        <small class="text-muted">Language Teacher</small>
-                                    </div>
-                                </div>
+                                <blockquote class="blockquote mb-3">
+                                    <p>"I was struggling with marketing my small business. Through SkillSwap, I connected with a marketing expert who helped me immensely. I, in turn, taught them how to play the guitar."</p>
+                                </blockquote>
+                                <cite class="d-block text-muted">- Mark Karson, Entrepreneur</cite>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100">
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card testimonial-card h-100">
+                            <div class="card-body p-4">
+                                <div class="testimonial-avatar mb-3">
+                                   <span>AK</span>
+                                </div>
+                                <blockquote class="blockquote mb-3">
+                                    <p>"The community is amazing! Everyone is so willing to share their knowledge. I've learned so much, and made some great connections."</p>
+                                </blockquote>
+                                <cite class="d-block text-muted">- Alex Kim, Graphic Designer</cite>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-pattern"></div>
+            <div class="container cta-container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8" data-aos="zoom-in">
+                        <div class="card cta-card text-center">
                             <div class="card-body">
-                                <div class="mb-3">
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star-half-alt text-warning"></i>
-                                </div>
-                                <p class="card-text">"As a photographer, I've exchanged photography sessions for cooking lessons. Now I can take great photos AND cook amazing meals!"</p>
-                                <div class="d-flex align-items-center mt-3">
-                                    <div class="bg-primary rounded-circle text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">AJ</div>
-                                    <div class="ms-3">
-                                        <h5 class="mb-0">Alex Johnson</h5>
-                                        <small class="text-muted">Photographer</small>
-                                    </div>
-                                </div>
+                                <h2 class="h3 mb-4">Ready to Exchange Skills and Grow?</h2>
+                                <p class="mb-4">Join SkillSwap today and become part of a vibrant community of learners and teachers.</p>
+                                <a href="pages/register.html" class="btn btn-secondary btn-lg">
+                                    <i class="fas fa-rocket me-2"></i> Join SkillSwap Now
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -211,55 +380,95 @@
             </div>
         </section>
     </main>
-    
+
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4 mb-md-0">
-                    <h5 class="mb-3">SkillSwap</h5>
-                    <p>A community-driven platform for exchanging skills and knowledge without monetary transactions.</p>
-                    <div class="d-flex gap-3 mt-3">
-                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                    <h4 class="footer-title">SkillSwap</h4>
+                    <p>Exchange skills, build community, and grow together. SkillSwap connects you with individuals eager to share their expertise.</p>
                 </div>
                 <div class="col-md-2 mb-4 mb-md-0">
-                    <h5 class="mb-3">Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">About Us</a></li>
-                        <li><a href="#" class="text-white">How It Works</a></li>
-                        <li><a href="#" class="text-white">FAQs</a></li>
-                        <li><a href="#" class="text-white">Contact</a></li>
+                    <h4 class="footer-title">Explore</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="pages/skills.html">Browse Skills</a></li>
+                        <li><a href="pages/exchange.html">How it Works</a></li>
+                        <li><a href="#">Success Stories</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 mb-4 mb-md-0">
-                    <h5 class="mb-3">Categories</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Technology</a></li>
-                        <li><a href="#" class="text-white">Art & Design</a></li>
-                        <li><a href="#" class="text-white">Languages</a></li>
-                        <li><a href="#" class="text-white">Music</a></li>
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="mb-3">Newsletter</h5>
-                    <p>Subscribe to our newsletter for updates</p>
-                    <form class="d-flex">
-                        <input type="email" class="form-control me-2" placeholder="Your email">
-                        <button class="btn btn-outline-light" type="submit">Subscribe</button>
-                    </form>
+                    <h4 class="footer-title">Connect With Us</h4>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
             </div>
-            <hr class="my-4 bg-white">
-            <div class="text-center">
-                <p class="mb-0">&copy; 2025 SkillSwap Community. All rights reserved.</p>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="text-muted">© 2023 SkillSwap. All rights reserved.</p>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Animation on Scroll (for browsers that don't support AOS)
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight - 50) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        // Initial check on load
+        animateOnScroll();
+
+        // Listen for scroll events
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Number counter animation
+        const countElements = document.querySelectorAll('.stat-number');
+        
+        countElements.forEach(element => {
+            const target = element.getAttribute('data-count');
+            const isDecimal = target.includes('.');
+            
+            if (isDecimal) {
+                const decimal = parseFloat(target);
+                element.textContent = decimal.toFixed(1) + '/5';
+            } else {
+                const count = parseInt(target, 10);
+                element.textContent = count.toLocaleString() + '+';
+            }
+        });
+    </script>
 </body>
 </html>
+
