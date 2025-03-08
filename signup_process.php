@@ -8,6 +8,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmPassword'];
 
+    // Basic input validation
+    if (empty($fullName) || empty($email) || empty($password) || empty($confirmPassword)) {
+        $_SESSION['error'] = "All fields are required.";
+        header("Location: signup.php");
+        exit();
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['error'] = "Invalid email format.";
+        header("Location: signup.php");
+        exit();
+    }
+
     // Check if passwords match
     if ($password !== $confirmPassword) {
         $_SESSION['error'] = "Passwords do not match.";
@@ -15,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Check if email already exists
+    // Check if email already exists (using prepared statements)
     $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -30,12 +43,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Hash the password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    // Insert new user
+    // Insert new user (using prepared statements)
     $stmt = $conn->prepare("INSERT INTO users (fullName, email, password, created_at) VALUES (?, ?, ?, NOW())");
     $stmt->bind_param("sss", $fullName, $email, $hashedPassword);
 
     if ($stmt->execute()) {
-        $_SESSION['user_id'] = $stmt->insert_id;
+        $_SESSION['user_id'] = $stmt->insert_id;  // Get the newly inserted user's ID
         $_SESSION['user_name'] = $fullName;
         header("Location: dashboard.php");
         exit();
@@ -45,5 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
     $stmt->close();
+} else {
+    header("Location: signup.php");  // Prevent direct access
+    exit;
 }
+
+$conn->close();
 ?>

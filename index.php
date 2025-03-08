@@ -7,7 +7,7 @@
       <p class="lead">Connect, learn, and share your skills with others in your community.</p>
       <!-- Call-to-Action Buttons -->
       <a class="btn btn-primary btn-lg" href="signup.php" role="button">Join Now</a>
-      <a class="btn btn-secondary btn-lg" href="about.php" role="button">Learn More</a>
+      <a class="btn btn-secondary btn-lg" href="skills.php" role="button">Browse Skills</a>
     </div>
   </div>
 </section>

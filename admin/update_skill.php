@@ -1,30 +1,31 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+if (!isset($_SESSION['admin_logged_in']) || !$_SESSION['admin_logged_in']) {
+    header("Location: ../login.php");
     exit();
 }
-include 'db_connect.php';
+
+include '../db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $userId = $_SESSION['user_id'];
+    $skillId = intval($_POST['id']);
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
     $details = trim($_POST['details']);
     $category = $_POST['category'];
     $availability = trim($_POST['availability']);
 
-    // Basic input validation
-    if (empty($title) || empty($description)) {
+    // Basic Input Validation
+     if (empty($title) || empty($description)) {
         $_SESSION['error'] = "Title and short description are required.";
-        header("Location: create_skill.php");
+        header("Location: edit_skill.php?id=" . $skillId);
         exit();
     }
 
-    // Handle file upload for skill image (optional)
-    $imagePath = null;
+    // Handle Image Upload (if provided)
+     $imagePath = null;
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-        $targetDir = "images/skills/";
+       $targetDir = "../images/skills/"; // Note: Relative path from admin directory
         if (!file_exists($targetDir)) {
             mkdir($targetDir, 0777, true); // Create directory if it doesn't exist
         }
@@ -35,15 +36,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $check = getimagesize($_FILES["image"]["tmp_name"]);
         if($check === false) {
           $_SESSION['error'] = "File is not an image.";
-           header("Location: create_skill.php");
+            header("Location: edit_skill.php?id=" . $skillId);
            exit();
         }
 
         // Check file size  (5MB limit)
          if ($_FILES["image"]["size"] > 5000000) {
           $_SESSION['error'] = "Sorry, your file is too large.";
-          header("Location: create_skill.php");
-          exit();
+            header("Location: edit_skill.php?id=" . $skillId);
+           exit();
          }
 
         // Allow certain file formats
@@ -51,35 +52,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif" ) {
              $_SESSION['error'] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-              header("Location: create_skill.php");
+            header("Location: edit_skill.php?id=" . $skillId);
                exit();
         }
-
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetFile)) {
             $imagePath = $targetFile;
-        } else {
+        }else{
             $_SESSION['error'] = "Sorry, there was an error uploading your file.";
-              header("Location: create_skill.php");
-              exit();
+            header("Location: edit_skill.php?id=" . $skillId);
+           exit();
         }
     }
 
-    // Insert the new skill post into the database (using prepared statements)
-    $stmt = $conn->prepare("INSERT INTO skills (user_id, title, description, details, category, availability, image, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())");
-    $stmt->bind_param("issssss", $userId, $title, $description, $details, $category, $availability, $imagePath);
+    // Update query
+    if($imagePath){
+        $stmt = $conn->prepare("UPDATE skills SET title = ?, description = ?, details = ?, category = ?, availability = ?, image = ? WHERE id = ?");
+        $stmt->bind_param("ssssssi", $title, $description, $details, $category, $availability, $imagePath, $skillId);
+    } else {
+        $stmt = $conn->prepare("UPDATE skills SET title = ?, description = ?, details = ?, category = ?, availability = ? WHERE id = ?");
+        $stmt->bind_param("sssssi", $title, $description, $details, $category, $availability, $skillId);
+    }
+
 
     if ($stmt->execute()) {
-        $_SESSION['message'] = "Skill post created successfully.";
-        header("Location: my_skills.php"); // Redirect to the user's skills page
+        $_SESSION['message'] = "Skill updated successfully.";
+        header("Location: manage_skills.php");
         exit();
     } else {
-        $_SESSION['error'] = "Failed to create skill post. " . $stmt->error;  // Include detailed error
-        header("Location: create_skill.php");
+        $_SESSION['error'] = "Failed to update skill: " . $stmt->error;
+        header("Location: edit_skill.php?id=" . $skillId); // Stay on the edit page
         exit();
     }
     $stmt->close();
-} else{
-   header("Location: create_skill.php"); // prevent direct access
-   exit;
+
+} else {
+    header("Location: manage_skills.php"); // prevent direct access
+    exit();
 }
+
 $conn->close();
+?>

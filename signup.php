@@ -1,6 +1,6 @@
 <?php include 'header.php'; ?>
 <div class="container my-5">
-  <h1>Sign Up</h1>
+  <h1 class="mb-4">Sign Up</h1>
   <form action="signup_process.php" method="post" id="signupForm">
     <div class="form-group">
       <label for="fullName">Full Name</label>

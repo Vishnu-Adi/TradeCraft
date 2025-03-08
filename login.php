@@ -1,6 +1,6 @@
 <?php include 'header.php'; ?>
 <div class="container my-5">
-  <h1>Login</h1>
+  <h1 class="mb-4">Login</h1>
   <form action="login_process.php" method="post">
     <div class="form-group">
       <label for="email">Email Address</label>

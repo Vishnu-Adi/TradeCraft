@@ -1,6 +1,12 @@
-<?php include 'header.php'; ?>
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+include 'header.php'; ?>
 <div class="container my-5">
-  <h1>Create a New Skill Post</h1>
+  <h1 class="mb-4">Create a New Skill Post</h1>
   <form action="create_skill_process.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="title">Skill Title</label>
@@ -20,7 +26,11 @@
         <option value="cooking">Cooking</option>
         <option value="webdev">Web Development</option>
         <option value="photography">Photography</option>
-        <!-- Add more categories as needed -->
+        <option value="writing">Writing</option>
+        <option value="music">Music</option>
+        <option value="art">Art</option>
+        <option value="fitness">Fitness</option>
+        <option value="languages">Languages</option>
       </select>
     </div>
     <div class="form-group">
