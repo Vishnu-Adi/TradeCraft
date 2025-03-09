@@ -56,7 +56,6 @@ if ($recipientId) {
 
 }
 
-
 // --- 2. Fetch Conversations ---
 $stmt = $conn->prepare("
     SELECT
@@ -83,7 +82,6 @@ $conversationId = isset($_GET['conversation_id']) ? intval($_GET['conversation_i
 if (!$conversationId && count($conversations) > 0) {
     $conversationId = $conversations[0]['conversation_id']; // Default to the first conversation
 }
-
 
 // --- 4. Fetch Messages for Current Conversation ---
 $messages = [];
@@ -129,11 +127,10 @@ if ($conversationId) {
                             <small class="text-muted">
                                 <?php
                                   if (isset($convo['last_message'])) {
-                                       echo  htmlspecialchars( (strlen($convo['last_message']) > 20) ? substr($convo['last_message'],0,20).'...' : $convo['last_message'] );
+                                       echo htmlspecialchars((strlen($convo['last_message']) > 20) ? substr($convo['last_message'], 0, 20) . '...' : $convo['last_message']);
                                    } else {
                                       echo "No messages yet";
                                    }
-
                                 ?>
                             </small>
                         </a>

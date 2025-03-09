@@ -1,7 +1,9 @@
   <!-- Footer Section -->
   <footer class="bg-dark text-white text-center py-3">
     <div class="container">
-      <p>© <?php echo date('Y'); ?> Community Skill Exchange. All rights reserved. <a href="privacy.php" class="text-white">Privacy Policy</a> | <a href="terms.php" class="text-white">Terms & Conditions</a></p>
+      <p>© <?php echo date('Y'); ?> Community Skill Exchange. All rights reserved. <a href="privacy.php" class="text-white">Privacy Policy</a> | <a href="terms.php" class="text-white">Terms & Conditions</a>
+      | <a href="admin/login.php" class="text-white">Admin</a> <!-- Admin login link -->
+      </p>
     </div>
   </footer>
 
