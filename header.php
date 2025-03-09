@@ -88,10 +88,11 @@
                                     <i class="fas fa-user"></i>
                                     <span>My Profile</span>
                                 </a>
-                                <a href="messages.php" class="user-dropdown-item">
+                                <a href="messages.php" class="user-dropdown-item <?php echo (basename($_SERVER['PHP_SELF']) == 'messages.php') ? 'active' : ''; ?>" ">
                                     <i class="fas fa-envelope"></i>
                                     <span>Messages</span>
                                 </a>
+                        
                                 <div class="user-dropdown-divider"></div>
                                 <a href="logout.php" class="user-dropdown-item">
                                     <i class="fas fa-sign-out-alt"></i>
