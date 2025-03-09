@@ -422,7 +422,7 @@
 .hero-subtitle {
     font-size: clamp(1rem, 2vw, 1.25rem);
     color: var(--gray);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     max-width: 540px;
 }
 
@@ -499,7 +499,7 @@
 
 /* Section Styling */
 .section {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-xl) 0;
 }
 
 .section-header {

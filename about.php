@@ -112,24 +112,6 @@
 
 
 
-<section class="cta-section">
-    <div class="container">
-        <div class="cta-content animate-on-scroll">
-            <h2 class="cta-title">Join Our Community</h2>
-            <p class="cta-text">Become part of our growing community of skill exchangers and start your learning journey today.</p>
-            <div class="cta-actions">
-                <a href="signup.php" class="btn btn-light btn-lg">
-                    <i class="fas fa-user-plus mr-2"></i>Sign Up Now
-                </a>
-                <a href="contact.php" class="btn btn-outline-light btn-lg">
-                    Contact Us
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="cta-shape-1"></div>
-    <div class="cta-shape-2"></div>
-</section>
 
 <style>
 /* About Page Styles */
@@ -161,6 +143,7 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--space-2xl);
     align-items: center;
+    margin-bottom:30px;
 }
 
 .about-content {
@@ -200,6 +183,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-xl);
+    margin-bottom:30px;
 }
 
 .mission-card {
@@ -268,6 +252,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--space-lg);
+    margin-top:50px;
+    margin-bottom:20px;
 }
 
 .value-card {
@@ -307,89 +293,7 @@
     line-height: 1.6;
 }
 
-/* Team */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-lg);
-}
-
-.team-card {
-    background-color: white;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition-normal);
-}
-
-.team-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.team-image {
-    height: 250px;
-    overflow: hidden;
-}
-
-.team-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-normal);
-}
-
-.team-card:hover .team-image img {
-    transform: scale(1.05);
-}
-
-.team-content {
-    padding: var(--space-lg);
-    text-align: center;
-}
-
-.team-name {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-xs);
-}
-
-.team-role {
-    color: var(--primary);
-    font-weight: 600;
-    margin-bottom: var(--space-sm);
-}
-
-.team-bio {
-    color: var(--gray);
-    margin-bottom: var(--space-md);
-    line-height: 1.6;
-}
-
-.team-social {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-sm);
-}
-
-.team-social-link {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: rgba(58, 134, 255, 0.1);
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--transition-normal);
-}
-
-.team-social-link:hover {
-    background-color: var(--primary);
-    color: white;
-    transform: translateY(-3px);
-}
-
-
+/
 </style>
 
 <?php include 'footer.php'; ?>
