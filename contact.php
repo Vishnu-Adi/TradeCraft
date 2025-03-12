@@ -78,7 +78,7 @@
                         </div>
                         <div class="contact-info-content">
                             <h3>Call Us</h3>
-                            <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                            <p><a href="tel:+15551234567">+9824343234234</a></p>
                         </div>
                     </div>
                     
@@ -88,7 +88,7 @@
                         </div>
                         <div class="contact-info-content">
                             <h3>Visit Us</h3>
-                            <p>123 Community Lane, Skill City, Country</p>
+                            <p>VIT Vellore</p>
                         </div>
                     </div>
                     
@@ -121,10 +121,10 @@
     <div class="container">
         <div class="map-container">
             <h2 class="text-center mb-4">Find Us On The Map</h2>
-            <div class="map-frame">
+
+            <div class="map-frame"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=1000&amp;height=450&amp;hl=en&amp;q=VIT main gate&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://embed-googlemap.com">google map embed html</a></div><style>.mapouter{position:relative;text-align:right;width:1000px;height:450px;}.gmap_canvas {overflow:hidden;background:none!important;width:1000px;height:450px;}.gmap_iframe {width:1000px!important;height:450px!important;}</style></div>
                 <!-- Replace with actual Google Maps embed code -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e28c1191%3A0x49f75d3281df052a!2s123%20Community%20St%2C%20New%20York%2C%20NY%2010001%2C%20USA!5e0!3m2!1sen!2sus!4v1615996579774!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+
         </div>
     </div>
 </section>
@@ -140,7 +140,7 @@
 }
 
 .contact-title {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(4rem, 5vw, 3rem);
     margin-bottom: var(--space-md);
 }
 

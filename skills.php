@@ -58,82 +58,175 @@ while ($row = $result->fetch_assoc()) {
 
 $stmt->close();
 ?>
-<section class="skills-page-header py-5 bg-light">
+
+<!-- Hero Section with Search Bar -->
+<section class="py-5 bg-light">
     <div class="container">
-        <div class="text-center">
-            <h1 class="display-4">Discover Skills</h1>
-            <p class="lead">Browse through our community's diverse range of skills and find what you're looking to learn.</p>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h1 class="display-4 fw-bold mb-3">Discover Skills</h1>
+                <p class="lead mb-4">Browse through our community's diverse range of skills and find what you're looking to learn.</p>
+                
+                <!-- Search Bar (Centered with rounded corners) -->
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <form method="get" action="skills.php" class="mb-4">
+                            <div class="input-group input-group-lg shadow-sm rounded-pill overflow-hidden">
+                                <input type="text" name="search" placeholder="Search for skills..." 
+                                   value="<?php echo htmlspecialchars($searchTerm); ?>" 
+                                   class="form-control border-0 px-4">
+                                <button type="submit" class="btn btn-primary px-4">
+                                    <i class="fas fa-search me-2"></i>Search
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-
-<section class="skills-section py-5">
+<!-- Skills Section -->
+<section class="py-5">
     <div class="container">
-        <!-- Filters -->
-        <div class="skills-filters mb-4">
-             <!-- Search Filter -->
-            <div class="search-filter mb-3">
-                <form method="get" action="skills.php" class="search-form">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-search"></i></span>
-                        </div>
-                        <input type="text" name="search" placeholder="Search skills..." value="<?php echo htmlspecialchars($searchTerm); ?>" class="form-control">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-primary">Search</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Category Filter -->
-           <div class="category-filter">
-                <div class="mb-2" style="font-weight: bold;">Filter by Category:</div>
-                <div class="d-flex flex-wrap">
-                    <a href="skills.php<?php echo !empty($searchTerm) ? '?search=' . urlencode($searchTerm) : ''; ?>" class="btn btn-outline-secondary m-1 <?php echo empty($category) ? 'active' : ''; ?>">All</a>
-                    <?php foreach ($categories as $cat): ?>
-                        <a href="skills.php?<?php echo !empty($searchTerm) ? 'search=' . urlencode($searchTerm) . '&' : ''; ?>category=<?php echo urlencode($cat); ?>" class="btn btn-outline-secondary m-1 <?php echo $category === $cat ? 'active' : ''; ?>">
-                            <?php echo htmlspecialchars($cat); ?>
-                        </a>
-                    <?php endforeach; ?>
-                </div>
+        <!-- Category Pills -->
+        <div class="mb-4">
+            <h5 class="mb-3">Filter by Category:</h5>
+            <div class="d-flex flex-wrap gap-2">
+                <a href="skills.php<?php echo !empty($searchTerm) ? '?search=' . urlencode($searchTerm) : ''; ?>" 
+                   class="btn <?php echo empty($category) ? 'btn-primary' : 'btn-outline-secondary'; ?> rounded-pill px-3">
+                    All Categories
+                </a>
+                <?php foreach ($categories as $cat): ?>
+                    <a href="skills.php?<?php echo !empty($searchTerm) ? 'search=' . urlencode($searchTerm) . '&' : ''; ?>category=<?php echo urlencode($cat); ?>" 
+                       class="btn <?php echo $category === $cat ? 'btn-primary' : 'btn-outline-secondary'; ?> rounded-pill px-3">
+                        <?php echo htmlspecialchars($cat); ?>
+                    </a>
+                <?php endforeach; ?>
             </div>
         </div>
+        
+        <!-- Active Filters Display -->
+        <?php if (!empty($searchTerm) || !empty($category)): ?>
+            <div class="d-flex align-items-center mb-4 p-3 bg-light rounded-3">
+                <div class="me-2">
+                    <i class="fas fa-filter text-primary"></i>
+                </div>
+                <div>
+                    <strong>Active filters:</strong>
+                    <?php if (!empty($searchTerm)): ?>
+                        <span class="badge bg-primary rounded-pill ms-2">
+                            Search: <?php echo htmlspecialchars($searchTerm); ?>
+                            <a href="skills.php<?php echo !empty($category) ? '?category=' . urlencode($category) : ''; ?>" 
+                               class="text-white text-decoration-none ms-1" title="Remove filter">
+                                <i class="fas fa-times"></i>
+                            </a>
+                        </span>
+                    <?php endif; ?>
+                    <?php if (!empty($category)): ?>
+                        <span class="badge bg-primary rounded-pill ms-2">
+                            Category: <?php echo htmlspecialchars($category); ?>
+                            <a href="skills.php<?php echo !empty($searchTerm) ? '?search=' . urlencode($searchTerm) : ''; ?>" 
+                               class="text-white text-decoration-none ms-1" title="Remove filter">
+                                <i class="fas fa-times"></i>
+                            </a>
+                        </span>
+                    <?php endif; ?>
+                </div>
+                <div class="ms-auto">
+                    <a href="skills.php" class="btn btn-sm btn-outline-secondary">
+                        <i class="fas fa-redo me-1"></i>Clear All
+                    </a>
+                </div>
+            </div>
+        <?php endif; ?>
 
-        <!-- Skill Cards -->
+        <!-- Skills Display -->
         <?php if (count($skills) > 0): ?>
-            <div class="row">
+            <div class="row g-4">
                 <?php foreach ($skills as $skill): ?>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                 <?php if (!empty($skill['category'])): ?>
-                                    <span class="badge badge-primary mb-2"><?php echo htmlspecialchars($skill['category']); ?></span>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100 shadow-sm border-0 rounded-3 hover-shadow">
+                            <div class="card-body p-4">
+                                <?php if (!empty($skill['category'])): ?>
+                                    <span class="badge bg-primary rounded-pill mb-2 px-3 py-2">
+                                        <?php echo htmlspecialchars($skill['category']); ?>
+                                    </span>
                                 <?php endif; ?>
-                                <h5 class="card-title"><?php echo htmlspecialchars($skill['title']); ?></h5>
-                                <p class="card-text text-muted"><?php echo htmlspecialchars(substr($skill['description'], 0, 150)); ?>...</p>
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="avatar mr-2" style="width: 30px; height: 30px; border-radius: 50%; background-color: #007bff; color: white; text-align: center; line-height: 30px; font-weight: bold;">
-                                        <?php echo  htmlspecialchars(strtoupper(substr( $skill['fullName'] ?? 'U', 0, 1))); ?><!--  Get the first letter -->
+                                
+                                <h5 class="card-title fw-bold mb-3"><?php echo htmlspecialchars($skill['title']); ?></h5>
+                                
+                                <p class="card-text text-muted mb-4">
+                                    <?php echo htmlspecialchars(substr($skill['description'], 0, 120)); ?>...
+                                </p>
+                                
+                                <div class="border-top pt-3">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-2" style="width: 36px; height: 36px;">
+                                                <?php echo htmlspecialchars(strtoupper(substr($skill['fullName'] ?? 'U', 0, 1))); ?>
+                                            </div>
+                                            <span class="text-truncate" style="max-width: 100px;">
+                                                <?php echo htmlspecialchars($skill['fullName'] ?? 'Unknown User'); ?>
+                                            </span>
+                                        </div>
+                                        
+                                        <a href="skill_detail.php?id=<?php echo $skill['id']; ?>" class="btn btn-sm btn-primary rounded-pill">
+                                            <i class="fas fa-arrow-right me-1"></i> View Details
+                                        </a>
                                     </div>
-                                    <span><?php echo htmlspecialchars($skill['fullName']  ?? 'Unknown User' ); ?></span>
                                 </div>
-                                <a href="skill_detail.php?id=<?php echo $skill['id']; ?>" class="btn btn-primary">View Details</a>
                             </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
             </div>
+            
         <?php else: ?>
+            <!-- Empty State -->
             <div class="text-center py-5">
-                <i class="fas fa-search fa-3x text-muted mb-3"></i>
-                <h3>No skills found</h3>
-                <p class="text-muted">We couldn't find any skills matching your search criteria.</p>
-                <a href="skills.php" class="btn btn-primary">View All Skills</a>
+                <div class="py-5">
+                    <div class="d-inline-block p-4 bg-light rounded-circle mb-3">
+                        <i class="fas fa-search fa-3x text-muted"></i>
+                    </div>
+                    <h3 class="mb-3">No skills found</h3>
+                    <p class="text-muted mb-4">We couldn't find any skills matching your search criteria.</p>
+                    <a href="skills.php" class="btn btn-primary btn-lg rounded-pill px-4">View All Skills</a>
+                </div>
             </div>
         <?php endif; ?>
     </div>
 </section>
+
+<!-- Small Enhancement: Add a CTA Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="fw-bold mb-3">Have a Skill to Share?</h2>
+                <p class="lead mb-4">Join our community of skill-sharers and help others learn something new.</p>
+                <a href="add_skill.php" class="btn btn-primary btn-lg rounded-pill px-4">
+                    <i class="fas fa-plus-circle me-2"></i>Share Your Skill
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Minimal additional CSS that can't be easily done with Bootstrap */
+    .hover-shadow:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+    
+    /* Make sure inputs look consistent */
+    .form-control:focus {
+        box-shadow: 0 0 0 0.25rem rgba(var(--primary-rgb), 0.25);
+        border-color: var(--primary);
+    }
+</style>
 
 <?php include 'footer.php'; ?>

@@ -2,35 +2,54 @@
 
 <!-- Hero Section -->
 <section class="hero">
+    <div class="hero-particles"></div>
     <div class="container">
         <div class="hero-grid">
             <div class="hero-content">
                 <span class="hero-badge">Community Skill Exchange</span>
-                <h1 class="hero-title">Exchange Skills, <span class="gradient-text">Grow Together</span></h1>
+                <h1 class="hero-title">Exchange Skills,<br> <span class="gradient-text">Grow Together</span></h1>
                 <p class="hero-subtitle">Join our community platform where people share their expertise, learn new skills, and connect with talented individuals in their neighborhood.</p>
                 <div class="hero-actions">
-                    <a href="signup.php" class="btn btn-primary btn-lg">Get Started <i class="fas fa-arrow-right ml-2"></i></a>
-                    <a href="#how-it-works" class="btn btn-outline-primary btn-lg">How It Works</a>
+                    <a href="signup.php" class="btn btn-primary btn-lg">
+                        Get Started <i class="fas fa-arrow-right ml-2"></i>
+                        <span class="btn-glow"></span>
+                    </a>
+                    <a href="#how-it-works" class="btn btn-outline-primary btn-lg">
+                        How It Works
+                        <span class="btn-outline-glow"></span>
+                    </a>
                 </div>
                 <div class="hero-stats">
                     <div class="hero-stat">
                         <span class="hero-stat-number">5,000+</span>
                         <span class="hero-stat-label">Active Members</span>
+                        <div class="stat-icon-bg">
+                            <i class="fas fa-users"></i>
+                        </div>
                     </div>
                     <div class="hero-stat">
                         <span class="hero-stat-number">2,500+</span>
                         <span class="hero-stat-label">Skills Shared</span>
+                        <div class="stat-icon-bg">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
                     </div>
                     <div class="hero-stat">
                         <span class="hero-stat-number">10,000+</span>
                         <span class="hero-stat-label">Connections</span>
+                        <div class="stat-icon-bg">
+                            <i class="fas fa-handshake"></i>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="hero-image">
+                
+                
                 <img src="images/hero-illustration.svg" alt="SkillSwap Community" class="animate-on-scroll">
                 <div class="hero-shape-1"></div>
                 <div class="hero-shape-2"></div>
+                <div class="hero-shape-3"></div>
             </div>
         </div>
     </div>
@@ -45,6 +64,9 @@
 <section class="section">
     <div class="container">
         <div class="section-header">
+            <div class="section-icon-wrapper">
+                <i class="fas fa-th-large"></i>
+            </div>
             <h2 class="section-title">Explore Skill Categories</h2>
             <p class="section-subtitle">Discover skills across various categories and find what interests you the most</p>
         </div>
@@ -61,6 +83,7 @@
                     </a>
                 </div>
                 <div class="category-card-shape"></div>
+                <div class="category-card-glow"></div>
             </div>
             
             <div class="category-card animate-on-scroll" style="--delay: 0.2s">
@@ -75,6 +98,7 @@
                     </a>
                 </div>
                 <div class="category-card-shape"></div>
+                <div class="category-card-glow"></div>
             </div>
             
             <div class="category-card animate-on-scroll" style="--delay: 0.3s">
@@ -89,20 +113,25 @@
                     </a>
                 </div>
                 <div class="category-card-shape"></div>
+                <div class="category-card-glow"></div>
             </div>
         </div>
         <div class="section-footer">
-            <a href="categories.php" class="btn btn-outline-primary">
+            <a href="skills.php" class="btn btn-outline-primary btn-glow">
                 View All Categories <i class="fas fa-th-large ml-2"></i>
+                <span class="btn-outline-glow"></span>
             </a>
         </div>
     </div>
 </section>
 
 <!-- How It Works Section -->
-<section class="section bg-light" id="how-it-works">
+<section class="section bg-gradient" id="how-it-works">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header light">
+            <div class="section-icon-wrapper light">
+                <i class="fas fa-question-circle"></i>
+            </div>
             <h2 class="section-title">How SkillSwap Works</h2>
             <p class="section-subtitle">Our simple process to connect, learn, and share skills with others</p>
         </div>
@@ -159,12 +188,20 @@
             </div>
         </div>
     </div>
+    <div class="section-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffffff" fill-opacity="1" d="M0,160L48,170.7C96,181,192,203,288,202.7C384,203,480,181,576,165.3C672,149,768,139,864,154.7C960,171,1056,213,1152,218.7C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
 </section>
 
 <!-- Featured Skills Section -->
 <section class="section">
     <div class="container">
         <div class="section-header">
+            <div class="section-icon-wrapper">
+                <i class="fas fa-star"></i>
+            </div>
             <h2 class="section-title">Featured Skills</h2>
             <p class="section-subtitle">Discover popular skills being shared in our community</p>
         </div>
@@ -222,23 +259,30 @@
                     </div>
                 </div>
                 <div class="skill-card-footer">
-                    <a href="skill_detail.php?id=<?php echo $skill['id']; ?>" class="btn btn-primary btn-block">View Details</a>
+                    <a href="skill_detail.php?id=<?php echo $skill['id']; ?>" class="btn btn-primary btn-block">
+                        View Details
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
             </div>
             <?php endforeach; ?>
         </div>
         <div class="section-footer">
-            <a href="skills.php" class="btn btn-outline-primary">
+            <a href="skills.php" class="btn btn-outline-primary btn-glow">
                 Browse All Skills <i class="fas fa-arrow-right ml-2"></i>
+                <span class="btn-outline-glow"></span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- Testimonials Section -->
-<section class="section bg-light">
+<!-- Testimonials Section
+<section class="section bg-pattern">
     <div class="container">
         <div class="section-header">
+            <div class="section-icon-wrapper">
+                <i class="fas fa-quote-right"></i>
+            </div>
             <h2 class="section-title">What Our Community Says</h2>
             <p class="section-subtitle">Hear from members who have experienced the power of skill exchange</p>
         </div>
@@ -252,6 +296,9 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-quote-icon">
+                            <i class="fas fa-quote-left"></i>
                         </div>
                         <p class="testimonial-text">"I've always wanted to learn guitar but couldn't afford lessons. Through SkillSwap, I found someone who taught me guitar in exchange for my Spanish lessons. It's been an amazing experience!"</p>
                     </div>
@@ -273,6 +320,9 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
+                        <div class="testimonial-quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
                         <p class="testimonial-text">"As a professional photographer, I wanted to learn coding. I connected with a developer who needed photography for his portfolio. We both gained valuable skills and became good friends!"</p>
                     </div>
                     <div class="testimonial-author">
@@ -293,6 +343,9 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
                         </div>
+                        <div class="testimonial-quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
                         <p class="testimonial-text">"SkillSwap helped me discover hidden talents in my own neighborhood. I've learned cooking, basic car maintenance, and even meditation - all while teaching others about digital marketing."</p>
                     </div>
                     <div class="testimonial-author">
@@ -306,27 +359,51 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Stats Section -->
-<section class="section">
+<section class="section stats-section">
     <div class="container">
         <div class="stats-grid">
             <div class="stat-card animate-on-scroll" style="--delay: 0.1s">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
                 <div class="stat-number" style="color: var(--primary);">5K+</div>
                 <div class="stat-label">Active Members</div>
+                <svg class="stat-wave" viewBox="0 0 100 20">
+                    <path d="M0,10 C30,20 70,0 100,10 L100,20 L0,20 Z" fill="rgba(58, 134, 255, 0.1)"></path>
+                </svg>
             </div>
             <div class="stat-card animate-on-scroll" style="--delay: 0.2s">
+                <div class="stat-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
                 <div class="stat-number" style="color: var(--secondary);">2.5K+</div>
                 <div class="stat-label">Skills Shared</div>
+                <svg class="stat-wave" viewBox="0 0 100 20">
+                    <path d="M0,10 C30,20 70,0 100,10 L100,20 L0,20 Z" fill="rgba(255, 0, 110, 0.1)"></path>
+                </svg>
             </div>
             <div class="stat-card animate-on-scroll" style="--delay: 0.3s">
+                <div class="stat-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
                 <div class="stat-number" style="color: var(--accent-1);">10K+</div>
                 <div class="stat-label">Connections Made</div>
+                <svg class="stat-wave" viewBox="0 0 100 20">
+                    <path d="M0,10 C30,20 70,0 100,10 L100,20 L0,20 Z" fill="rgba(0, 180, 216, 0.1)"></path>
+                </svg>
             </div>
             <div class="stat-card animate-on-scroll" style="--delay: 0.4s">
+                <div class="stat-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
                 <div class="stat-number" style="color: var(--accent-2);">50+</div>
                 <div class="stat-label">Communities</div>
+                <svg class="stat-wave" viewBox="0 0 100 20">
+                    <path d="M0,10 C30,20 70,0 100,10 L100,20 L0,20 Z" fill="rgba(114, 9, 183, 0.1)"></path>
+                </svg>
             </div>
         </div>
     </div>
@@ -334,22 +411,26 @@
 
 <!-- CTA Section -->
 <section class="cta-section">
+    <div class="cta-particles"></div>
     <div class="container">
         <div class="cta-content animate-on-scroll">
             <h2 class="cta-title">Ready to Share Your Skills?</h2>
             <p class="cta-text">Join our growing community of skill exchangers and start learning something new today while helping others grow.</p>
             <div class="cta-actions">
-                <a href="signup.php" class="btn btn-light btn-lg">
+                <a href="signup.php" class="btn btn-light btn-lg btn-glow">
                     <i class="fas fa-user-plus mr-2"></i>Join Now - It's Free!
+                    <span class="btn-light-glow"></span>
                 </a>
                 <a href="about.php" class="btn btn-outline-light btn-lg">
                     Learn More About Us
+                    <span class="btn-outline-light-glow"></span>
                 </a>
             </div>
         </div>
     </div>
     <div class="cta-shape-1"></div>
     <div class="cta-shape-2"></div>
+    <div class="cta-shape-3"></div>
 </section>
 
 <!-- Newsletter Section -->
@@ -357,6 +438,9 @@
     <div class="container">
         <div class="newsletter-container animate-on-scroll">
             <div class="newsletter-content">
+                <div class="newsletter-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
                 <h2 class="newsletter-title">Stay Updated with SkillSwap</h2>
                 <p class="newsletter-text">Subscribe to our newsletter to receive the latest updates, skill-sharing tips, and community stories.</p>
             </div>
@@ -374,814 +458,34 @@
 </section>
 
 <style>
-/* Hero Section */
-.hero {
-    position: relative;
-    padding: var(--space-3xl) 0 var(--space-xl);
-    background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
-    overflow: hidden;
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-    align-items: center;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-badge {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: rgba(58, 134, 255, 0.1);
-    color: var(--primary);
-    border-radius: var(--radius-full);
-    font-weight: 500;
-    font-size: 0.875rem;
-    margin-bottom: var(--space-md);
-}
-
-.hero-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    line-height: 1.2;
-    margin-bottom: var(--space-md);
-}
-
-.gradient-text {
-    background: linear-gradient(90deg, var(--primary) 0%, var(--accent-3) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-}
-
-.hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    color: var(--gray);
-    margin-bottom: var(--space-md);
-    max-width: 540px;
-}
-
-.hero-actions {
-    display: flex;
-    gap: var(--space-md);
-    margin-bottom: var(--space-xl);
-    flex-wrap: wrap;
-}
-
-.hero-stats {
-    display: flex;
-    gap: var(--space-xl);
-}
-
-.hero-stat {
-    display: flex;
-    flex-direction: column;
-}
-
-.hero-stat-number {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--dark);
-}
-
-.hero-stat-label {
-    font-size: 0.875rem;
-    color: var(--gray);
-}
-
-.hero-image {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-image img {
-    max-width: 100%;
-    height: auto;
-    position: relative;
-    z-index: 2;
-}
-
-.hero-shape-1 {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba(58, 134, 255, 0.2) 0%, rgba(67, 97, 238, 0.2) 100%);
-    top: -100px;
-    right: -100px;
-    z-index: 1;
-}
-
-.hero-shape-2 {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba(255, 0, 110, 0.15) 0%, rgba(217, 4, 41, 0.15) 100%);
-    bottom: -50px;
-    left: 50px;
-    z-index: 1;
-}
-
-.hero-wave {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    line-height: 0;
-    z-index: 1;
-}
-
-/* Section Styling */
-.section {
-    padding: var(--space-xl) 0;
-}
-
-.section-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto var(--space-2xl);
-}
-
-.section-title {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    margin-bottom: var(--space-md);
-    position: relative;
-    display: inline-block;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-    border-radius: var(--radius-full);
-}
-
-.section-subtitle {
-    color: var(--gray);
-    font-size: 1.125rem;
-    max-width: 600px;
-    margin: var(--space-lg) auto 0;
-}
-
-.section-footer {
-    text-align: center;
-    margin-top: var(--space-xl);
-}
-
-/* Category Cards */
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-lg);
-}
-
-.category-card {
-    position: relative;
-    background-color: white;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition-normal);
-    height: 100%;
-}
-
-.category-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.category-card-content {
-    padding: var(--space-xl);
-    position: relative;
-    z-index: 2;
-}
-
-.category-icon-wrapper {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: rgba(var(--color), 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: var(--space-md);
-}
-
-.category-icon {
-    font-size: 1.5rem;
-    color: var(--color);
-}
-
-.category-title {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-sm);
-}
-
-.category-description {
-    color: var(--gray);
-    margin-bottom: var(--space-lg);
-}
-
-.category-link {
-    display: inline-flex;
-    align-items: center;
-    color: var(--primary);
-    font-weight: 500;
-}
-
-.category-link i {
-    margin-left: var(--space-xs);
-    transition: transform var(--transition-fast);
-}
-
-.category-link:hover i {
-    transform: translateX(5px);
-}
-
-.category-card-shape {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 150px;
-    height: 150px;
-    background: linear-gradient(135deg, rgba(58, 134, 255, 0.05) 0%, rgba(67, 97, 238, 0.05) 100%);
-    border-radius: 50% 0 0 0;
-    z-index: 1;
-}
-
-/* Steps */
-.steps-container {
-    position: relative;
-    padding: var(--space-md) 0;
-}
-
-.step-line {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    background-color: rgba(var(--primary), 0.2);
-    transform: translateX(-50%);
-}
-
-.steps {
-    position: relative;
-    z-index: 2;
-}
-
-.step {
-    display: flex;
-    margin-bottom: var(--space-2xl);
-    position: relative;
-}
-
-.step:last-child {
-    margin-bottom: 0;
-}
-
-.step-number {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--primary);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    margin-right: var(--space-lg);
-    flex-shrink: 0;
-    position: relative;
-    z-index: 2;
-}
-
-.step-content {
-    background-color: white;
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    box-shadow: var(--shadow-md);
-    flex: 1;
-}
-
-.step-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: rgba(58, 134, 255, 0.1);
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    margin-bottom: var(--space-md);
-}
-
-.step-title {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-sm);
-}
-
-.step-description {
-    color: var(--gray);
-    margin-bottom: var(--space-md);
-}
-
-.step-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.step-list li {
-    position: relative;
-    padding-left: var(--space-lg);
-    margin-bottom: var(--space-xs);
-}
-
-.step-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--primary);
-}
-
-/* Skills Grid */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-lg);
-}
-
-.skill-card {
-    background-color: white;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition-normal);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.skill-card-image {
-    position: relative;
-    height: 200px;
-    overflow: hidden;
-}
-
-.skill-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-normal);
-}
-
-.skill-card:hover .skill-card-image img {
-    transform: scale(1.05);
-}
-
-.skill-card-badge {
-    position: absolute;
-    top: var(--space-md);
-    right: var(--space-md);
-    padding: 0.25rem 0.75rem;
-    border-radius: var(--radius-full);
-    color: white;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-.skill-card-body {
-    padding: var(--space-lg);
-    flex: 1;
-}
-
-.skill-card-title {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-sm);
-}
-
-.skill-card-description {
-    color: var(--gray);
-    margin-bottom: var(--space-md);
-}
-
-.skill-card-user {
-    display: flex;
-    align-items: center;
-}
-
-.skill-card-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    margin-right: var(--space-sm);
-}
-
-.skill-card-username {
-    font-weight: 500;
-}
-
-.skill-card-footer {
-    padding: var(--space-md);
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.btn-block {
-    width: 100%;
-}
-
-/* Testimonials */
-.testimonials-slider {
-    overflow: hidden;
-    padding: var(--space-md) 0;
-}
-
-.testimonials-track {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-lg);
-}
-
-.testimonial-card {
-    background-color: white;
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition-normal);
-    height: 100%;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.testimonial-content {
-    margin-bottom: var(--space-lg);
-}
-
-.testimonial-rating {
-    color: var(--warning);
-    margin-bottom: var(--space-md);
-}
-
-.testimonial-text {
-    font-style: italic;
-    color: var(--gray-dark);
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-}
-
-.testimonial-author-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: var(--space-md);
-}
-
-.testimonial-author-name {
-    font-size: 1rem;
-    margin: 0 0 var(--space-xs);
-}
-
-.testimonial-author-title {
-    font-size: 0.875rem;
-    color: var(--gray);
-    margin: 0;
-}
-
-/* Stats Grid */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-lg);
-    text-align: center;
-}
-
-.stat-card {
-    background-color: white;
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition-normal);
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: var(--space-sm);
-}
-
-.stat-label {
-    color: var(--gray);
-    font-size: 1rem;
-}
-
-/* CTA Section */
-.cta-section {
-    position: relative;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-3) 100%);
-    color: white;
-    padding: var(--space-3xl) 0;
-    margin: var(--space-3xl) 0;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-}
-
-.cta-content {
-    text-align: center;
-    position: relative;
-    z-index: 2;
-}
-
-.cta-title {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    margin-bottom: var(--space-md);
-}
-
-.cta-text {
-    font-size: 1.125rem;
-    max-width: 600px;
-    margin: 0 auto var(--space-xl);
-}
-
-.cta-actions {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-md);
-    flex-wrap: wrap;
-}
-
-.cta-shape-1 {
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.cta-shape-2 {
-    position: absolute;
-    bottom: -100px;
-    left: -50px;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-}
-
-/* App Download Section */
-.app-download-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-2xl);
-    align-items: center;
-}
-
-.app-download-image {
-    position: relative;
-}
-
-.app-mockup {
-    position: relative;
-    z-index: 2;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-}
-
-.app-image-shape-1 {
-    position: absolute;
-    top: -30px;
-    left: -30px;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba(58, 134, 255, 0.1) 0%, rgba(67, 97, 238, 0.1) 100%);
-    z-index: 1;
-}
-
-.app-image-shape-2 {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba(255, 0, 110, 0.1) 0%, rgba(217, 4, 41, 0.1) 100%);
-    z-index: 1;
-}
-
-.app-download-title {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin-bottom: var(--space-md);
-}
-
-.app-download-text {
-    color: var(--gray);
-    margin-bottom: var(--space-lg);
-}
-
-.app-download-buttons {
-    display: flex;
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
-    flex-wrap: wrap;
-}
-
-.app-download-rating {
-    display: flex;
-    align-items: center;
-    gap: var(--space-xl);
-}
-
-.app-rating-stars {
-    color: var(--warning);
-    display: flex;
-    align-items: center;
-}
-
-.app-rating-stars span {
-    margin-left: var(--space-xs);
-    color: var(--dark);
-    font-weight: 500;
-}
-
-.app-downloads {
-    color: var(--gray);
-}
-
-.app-downloads span {
-    font-weight: 700;
-    color: var(--dark);
-}
-
-/* Newsletter Section */
-.newsletter-container {
-    background-color: white;
-    border-radius: var(--radius-lg);
-    padding: var(--space-2xl);
-    box-shadow: var(--shadow-md);
-    text-align: center;
-}
-
-.newsletter-title {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin-bottom: var(--space-md);
-}
-
-.newsletter-text {
-    color: var(--gray);
-    max-width: 600px;
-    margin: 0 auto var(--space-lg);
-}
-
-.newsletter-form-large {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.newsletter-form-group {
-    display: flex;
-    margin-bottom: var(--space-sm);
-}
-
-.newsletter-input-large {
-    flex: 1;
-    padding: 0.75rem 1.25rem;
-    border: 1px solid var(--gray-light);
-    border-radius: var(--radius-md) 0 0 var(--radius-md);
-    font-size: 1rem;
-}
-
-.newsletter-input-large:focus {
-    outline: none;
-    border-color: var(--primary);
-}
-
-.newsletter-button-large {
-    padding: 0.75rem 1.5rem;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color var(--transition-fast);
-}
-
-.newsletter-button-large:hover {
-    background-color: var(--primary-dark);
-}
-
-.newsletter-disclaimer {
-    font-size: 0.875rem;
-    color: var(--gray);
-}
-
-/* Responsive Styles */
-@media (max-width: 991px) {
-    .hero-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-image {
-        order: -1;
-        margin-bottom: var(--space-xl);
-    }
-    
-    .hero-content {
-        text-align: center;
-    }
-    
-    .hero-subtitle {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .hero-actions {
-        justify-content: center;
-    }
-    
-    .hero-stats {
-        justify-content: center;
-    }
-    
-    .step {
-        flex-direction: column;
-    }
-    
-    .step-number {
-        margin-right: 0;
-        margin-bottom: var(--space-md);
-    }
-    
-    .step-line {
-        left: 20px;
-    }
-}
-
-@media (max-width: 767px) {
-    .cta-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .app-download-buttons {
-        flex-direction: column;
-    }
-    
-    .app-download-rating {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-sm);
-    }
-    
-    .newsletter-form-group {
-        flex-direction: column;
-    }
-    
-    .newsletter-input-large {
-        border-radius: var(--radius-md);
-        margin-bottom: var(--space-sm);
-    }
-    
-    .newsletter-button-large {
-        border-radius: var(--radius-md);
-        width: 100%;
-    }
-}
+<?php include 'css/style.css'; ?>
 </style>
 
+<script>
+// Add particles to hero section
+document.addEventListener('DOMContentLoaded', function() {
+
+
+    // Animate elements on scroll
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    
+    if (animateElements.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+    }
+});
+</script>
+
 <?php include 'footer.php'; ?>
+

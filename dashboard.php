@@ -213,10 +213,10 @@ include 'header.php';
             
             <div class="recommended-skills">
                 <div class="skill-card">
-                    <div class="skill-card-image">
+
 
                         <div class="skill-card-badge">Technology</div>
-                    </div>
+
                     <div class="skill-card-content">
                         <h3>Web Development Basics</h3>
                         <p>Learn HTML, CSS, and JavaScript fundamentals from an experienced developer.</p>
@@ -231,10 +231,10 @@ include 'header.php';
                 </div>
                 
                 <div class="skill-card">
-                    <div class="skill-card-image">
+
 
                         <div class="skill-card-badge">Lifestyle</div>
-                    </div>
+
                     <div class="skill-card-content">
                         <h3>Italian Cooking</h3>
                         <p>Master the art of Italian cuisine with authentic recipes and techniques.</p>
@@ -249,10 +249,10 @@ include 'header.php';
                 </div>
                 
                 <div class="skill-card">
-                    <div class="skill-card-image">
+
 
                         <div class="skill-card-badge">Creative</div>
-                    </div>
+
                     <div class="skill-card-content">
                         <h3>Photography Fundamentals</h3>
                         <p>Learn composition, lighting, and editing techniques for stunning photos.</p>
@@ -553,6 +553,7 @@ include 'header.php';
     }
     
     .skill-card {
+        position:relative;
         background-color: white;
         border-radius: 10px;
         overflow: hidden;
@@ -568,7 +569,8 @@ include 'header.php';
     }
     
 
-    
+  
+
     .skill-card-badge {
         position: absolute;
         top: 1rem;

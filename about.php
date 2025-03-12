@@ -18,8 +18,8 @@
                     <h2 class="section-title">Our Story</h2>
                 </div>
                 <p class="about-text">Welcome to SkillSwap! Our platform is dedicated to connecting community members to share skills and knowledge, fostering growth and collaboration in a world where learning should be accessible to everyone.</p>
-                <p class="about-text">Founded by a group of community enthusiasts in 2020, SkillSwap began as a simple idea to help people connect and learn from each other without financial barriers. What started as a local initiative has grown into a thriving online platform connecting thousands of individuals across the globe.</p>
-                <p class="about-text">Our diverse team is passionate about building a platform that makes skill sharing accessible, rewarding, and community-driven. We believe that everyone has something valuable to teach and something new to learn.</p>
+                <p class="about-text">SkillSwap began as a simple idea to help people connect and learn from each other without financial barriers. What started as a local initiative has grown into a thriving online platform connecting thousands of individuals across the globe.</p>
+                <p class="about-text">Our team is passionate about building a platform that makes skill sharing accessible, rewarding, and community-driven. We believe that everyone has something valuable to teach and something new to learn.</p>
             </div>
             <div class="about-image animate-on-scroll" style="--delay: 0.2s">
                 <img src="images/about-illustration.svg" alt="About SkillSwap">
@@ -117,7 +117,7 @@
 /* About Page Styles */
 .about-hero {
     position: relative;
-    padding: var(--space-3xl) 0 var(--space-xl);
+    padding: var(--space-xl) 0 var(--space-xl);
     background: linear-gradient(135deg, var(--primary) 0%, var(--accent-3) 100%);
     color: white;
     text-align: center;
@@ -183,7 +183,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-xl);
-    margin-bottom:30px;
+    margin-bottom:0px;
 }
 
 .mission-card {
