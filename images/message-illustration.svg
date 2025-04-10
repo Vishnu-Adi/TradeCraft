@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circles -->
+  <circle cx="150" cy="100" r="80" fill="#f1f5f9" opacity="0.5"/>
+  <circle cx="150" cy="100" r="50" fill="#e2e8f0" opacity="0.6"/>
+  
+  <!-- Message Bubbles -->
+  <rect x="60" y="70" width="90" height="40" rx="12" fill="#e2eafc"/>
+  <rect x="150" y="120" width="110" height="40" rx="12" fill="#4c6ef5"/>
+  <rect x="80" y="90" width="70" height="30" rx="12" fill="#e2eafc"/>
+  
+  <!-- Paper Plane -->
+  <g transform="translate(140,85) rotate(10)">
+    <path d="M0,0 L40,-15 L30,5 z" fill="#4c6ef5"/>
+    <path d="M0,0 L30,5 L15,25 z" fill="#748ffc"/>
+    <path d="M0,0 L15,25 L-5,10 z" fill="#a5b4fc"/>
+  </g>
+  
+  <!-- Dots -->
+  <circle cx="110" cy="140" r="4" fill="#a5b4fc"/>
+  <circle cx="125" cy="140" r="4" fill="#a5b4fc"/>
+  <circle cx="140" cy="140" r="4" fill="#a5b4fc"/>
+  
+  <!-- Small decorative elements -->
+  <circle cx="70" cy="50" r="3" fill="#748ffc"/>
+  <circle cx="200" cy="60" r="5" fill="#748ffc"/>
+  <circle cx="220" cy="150" r="4" fill="#748ffc"/>
+  <circle cx="90" cy="170" r="6" fill="#748ffc"/>
+</svg>
